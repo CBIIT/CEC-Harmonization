@@ -1,0 +1,20 @@
+Cannot find column 4.
+Cannot find column 4.
+   at System.Data.DataColumnCollection.get_Item(Int32 index)
+   at System.Data.DataRow.set_Item(Int32 columnIndex, Object value)
+   at cec_publicweb.enrollment.PopulateMaleEnrollmentGrid() in c:\source.Code\cecharm\cec_publicweb\enrollment.aspx.cs:line 1327
+   at cec_publicweb.enrollment.PopulateEnrollmentGrids() in c:\source.Code\cecharm\cec_publicweb\enrollment.aspx.cs:line 988
+   at cec_publicweb.enrollment.OnLoadComplete(EventArgs e) in c:\source.Code\cecharm\cec_publicweb\enrollment.aspx.cs:line 127
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Cannot find column 7.
+Cannot find column 7.
+   at System.Data.DataColumnCollection.get_Item(Int32 index)
+   at System.Data.DataRow.set_Item(Int32 columnIndex, Object value)
+   at cec_publicweb.enrollment.PopulateUnknownEnrollmentGrid() in c:\source.Code\cecharm\cec_publicweb\enrollment.aspx.cs:line 1164
+   at cec_publicweb.enrollment.PopulateEnrollmentGrids() in c:\source.Code\cecharm\cec_publicweb\enrollment.aspx.cs:line 1012
+   at cec_publicweb.enrollment.OnLoadComplete(EventArgs e) in c:\source.Code\cecharm\cec_publicweb\enrollment.aspx.cs:line 127
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

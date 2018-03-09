@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implementation of hook_captcha().
+ */
+function tcha_captcha($op, $captcha_type='', $captcha_sid=NULL) {
+	$result = captcha_captcha($op, $captcha_type, $captcha_sid);
+	
+	if($op == 'generate') {
+		//unset($result['form']['captcha_response']['#title']);
+		unset($result['form']['captcha_response']['#description']);
+	}
+	
+	return $result;
+}
+

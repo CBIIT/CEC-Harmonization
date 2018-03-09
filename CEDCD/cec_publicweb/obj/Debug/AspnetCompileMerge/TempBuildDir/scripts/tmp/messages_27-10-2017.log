@@ -1,0 +1,10 @@
+Column 'pi_name_5' does not belong to table tbl_web_cohorts_v4_0.
+Column 'pi_name_5' does not belong to table tbl_web_cohorts_v4_0.
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at cec_publicweb.cohortDetails.PopulateWebFieldValues(DataTable dt) in c:\source.Code\cecharm\cec_publicweb\cohortDetails.aspx.cs:line 321
+   at cec_publicweb.cohortDetails.OnLoad(EventArgs e) in c:\source.Code\cecharm\cec_publicweb\cohortDetails.aspx.cs:line 95
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * Implementation of hook_alter().
+ */
+function cmr_profile_tokens_alter(&$replacements, $context){
+  // profile2 only attached to 'user' type
+  if ($context['type'] == 'user'){
+    foreach ($context['tokens'] as $name => $original) {
+      // only fix tokens that don't already have a replacement
+      if (!isset($replacements[$original])){
+        // expand the token chain
+        $parts = explode(':', str_replace('-','_',$name), 2);
+        // check if value exists in the data for this token
+        if (isset($parts[0]) && isset($parts[1]) && isset($context['data']['user']->{$parts[0]}[$parts[1]])){
+          $replacements[$original] = $context['data']['user']->{$parts[0]}[$parts[1]][LANGUAGE_NONE][0]['value'];
+        }
+      }
+    }
+  }
+}

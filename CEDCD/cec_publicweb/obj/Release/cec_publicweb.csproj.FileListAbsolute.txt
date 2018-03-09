@@ -1,0 +1,14 @@
+C:\source.Code\cecharm\cec_publicweb\bin\cec_publicweb.dll
+C:\source.Code\cecharm\cec_publicweb\bin\cec_publicweb.pdb
+C:\source.Code\cecharm\cec_publicweb\bin\cec_publicservice.dll
+C:\source.Code\cecharm\cec_publicweb\bin\ICSharpCode.SharpZipLib.dll
+C:\source.Code\cecharm\cec_publicweb\bin\Jayrock.dll
+C:\source.Code\cecharm\cec_publicweb\bin\Jayrock.Json.dll
+C:\source.Code\cecharm\cec_publicweb\bin\NPOI.dll
+C:\source.Code\cecharm\cec_publicweb\bin\NPOI.OOXML.dll
+C:\source.Code\cecharm\cec_publicweb\bin\NPOI.OpenXml4Net.dll
+C:\source.Code\cecharm\cec_publicweb\bin\NPOI.OpenXmlFormats.dll
+C:\source.Code\cecharm\cec_publicweb\bin\cec_publicservice.pdb
+C:\source.Code\cecharm\cec_publicweb\obj\Release\cec_publicweb.csprojResolveAssemblyReference.cache
+C:\source.Code\cecharm\cec_publicweb\obj\Release\cec_publicweb.dll
+C:\source.Code\cecharm\cec_publicweb\obj\Release\cec_publicweb.pdb

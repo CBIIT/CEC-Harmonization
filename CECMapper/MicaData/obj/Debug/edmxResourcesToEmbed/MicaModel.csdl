@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="micadevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="dataset_vw">
+    <Key>
+      <PropertyRef Name="nid" />
+      <PropertyRef Name="type" />
+      <PropertyRef Name="title" />
+      <PropertyRef Name="uid" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="entity_id" />
+    </Key>
+    <Property Name="nid" Type="Int64" Nullable="false" />
+    <Property Name="vid" Type="Int64" />
+    <Property Name="type" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="entity_id" Type="Int64" Nullable="false" />
+    <Property Name="field_dataset_type_value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="dataset_title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="study_id" Type="Int64" />
+    <Property Name="study_title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="acronym" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="taxonomy_vw">
+    <Key>
+      <PropertyRef Name="tid" />
+      <PropertyRef Name="vid" />
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="tid" Type="Int64" Nullable="false" />
+    <Property Name="vid" Type="Int64" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="parent" Type="Int64" />
+  </EntityType>
+  <EntityType Name="taxvarmap_vw">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="bundle" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bundle" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="deleted" Type="SByte" Nullable="false" />
+    <Property Name="entity_id" Type="Int64" Nullable="false" />
+    <Property Name="revision_id" Type="Int64" />
+    <Property Name="language" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="delta" Type="Int64" Nullable="false" />
+    <Property Name="tid" Type="Int64" />
+  </EntityType>
+  <EntityType Name="variable_vw">
+    <Key>
+      <PropertyRef Name="nid" />
+      <PropertyRef Name="title" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="nid" Type="Int64" Nullable="false" />
+    <Property Name="vid" Type="Int64" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="field_label_value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="dataset_id" Type="Int64" />
+    <Property Name="dataset_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="entity_id" Type="Int64" />
+    <Property Name="entity_type" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="delta" Type="Int64" />
+    <Property Name="field_variable_categories_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="field_variable_categories_label" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="field_variable_categories_missing" Type="Int32" />
+    <Property Name="field_unit_value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="field_value_type_value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="body_value" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="study_id" Type="Int64" />
+    <Property Name="study_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="dataset_vw" EntityType="Self.dataset_vw" />
+    <EntitySet Name="taxonomy_vw" EntityType="Self.taxonomy_vw" />
+    <EntitySet Name="taxvarmap_vw" EntityType="Self.taxvarmap_vw" />
+    <EntitySet Name="variable_vw" EntityType="Self.variable_vw" />
+    <EntitySet Name="short_variable_vw" EntityType="micadevModel.short_variable_vw" />
+    <EntitySet Name="field_data_field_sva_comment" EntityType="micadevModel.field_data_field_sva_comment" />
+    <EntitySet Name="field_data_field_sva_script" EntityType="micadevModel.field_data_field_sva_script" />
+    <EntitySet Name="field_data_field_sva_status" EntityType="micadevModel.field_data_field_sva_status" />
+    <EntitySet Name="study_vw" EntityType="micadevModel.study_vw" />
+    <EntitySet Name="field_data_field_sva_variable" EntityType="micadevModel.field_data_field_sva_variable" />
+    <EntitySet Name="mica_vw" EntityType="micadevModel.mica_vw" />
+    <FunctionImport Name="clear_cache" />
+    <EntitySet Name="cohort_script_vw" EntityType="micadevModel.cohort_script_vw" />
+  </EntityContainer>
+  <EntityType Name="short_variable_vw">
+    <Key>
+      <PropertyRef Name="nid" />
+      <PropertyRef Name="title" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="nid" Type="Int64" Nullable="false" />
+    <Property Name="vid" Type="Int64" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="dataset_id" Type="Int64" />
+    <Property Name="dataset_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="field_data_field_sva_comment">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="bundle" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="deleted" Type="SByte" Nullable="false" />
+    <Property Name="entity_id" Type="Int64" Nullable="false" />
+    <Property Name="revision_id" Type="Int64" />
+    <Property Name="language" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="delta" Type="Int64" Nullable="false" />
+    <Property Name="field_sva_comment_value" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="field_sva_comment_format" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="field_data_field_sva_script">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="bundle" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="deleted" Type="SByte" Nullable="false" />
+    <Property Name="entity_id" Type="Int64" Nullable="false" />
+    <Property Name="revision_id" Type="Int64" />
+    <Property Name="language" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="delta" Type="Int64" Nullable="false" />
+    <Property Name="field_sva_script_value" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="field_sva_script_format" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="field_data_field_sva_status">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="bundle" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="deleted" Type="SByte" Nullable="false" />
+    <Property Name="entity_id" Type="Int64" Nullable="false" />
+    <Property Name="revision_id" Type="Int64" />
+    <Property Name="language" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="delta" Type="Int64" Nullable="false" />
+    <Property Name="field_sva_status_value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="study_vw">
+    <Key>
+      <PropertyRef Name="sva_id" />
+    </Key>
+    <Property Name="variable_id" Type="Int64" />
+    <Property Name="sva_id" Type="Int64" Nullable="false" />
+    <Property Name="study_id" Type="Int64" />
+    <Property Name="study_title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="field_data_field_sva_variable">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="bundle" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="deleted" Type="SByte" Nullable="false" />
+    <Property Name="entity_id" Type="Int64" Nullable="false" />
+    <Property Name="revision_id" Type="Int64" />
+    <Property Name="language" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="delta" Type="Int64" Nullable="false" />
+    <Property Name="field_sva_variable_nid" Type="Int64" />
+  </EntityType>
+  <EntityType Name="mica_vw">
+    <Key>
+      <PropertyRef Name="entity_id" />
+    </Key>
+    <Property Name="entity_id" Type="Int64" Nullable="false" />
+    <Property Name="field_sva_comment_value" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="field_sva_script_value" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="field_sva_status_value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="cohort_script_vw">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="bundle" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="bundle" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="deleted" Type="SByte" Nullable="false" />
+    <Property Name="entity_id" Type="Int64" Nullable="false" />
+    <Property Name="revision_id" Type="Int64" />
+    <Property Name="language" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="delta" Type="Int64" Nullable="false" />
+    <Property Name="field_study_study_variable_att_nid" Type="Int64" />
+    <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="field_sva_status_value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="field_sva_comment_value" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="field_sva_script_value" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

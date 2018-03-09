@@ -1,0 +1,136 @@
+﻿@model CECHarmonization.Models.Mapper
+@using CECHarmonization.Models
+@using Omu.AwesomeMvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Mapping Page</h3>
+
+
+<div id="tabs">
+    <ul class="nav nav-tabs" id="myTab">
+
+        <li><a href="#Target">Target Variable</a></li>
+        <li><a href="#line">----></a></li>
+        @foreach ( var x in Model.selectedCohortIds )
+        {
+        <li><a href="#tabs-@(x.Id)">@x.Text</a></li>
+        }
+    </ul>
+</div>
+
+   @*@foreach ( var x in Model.selectedCohortIds )
+    {
+<div class="tab-content"  id="tabs-@(x)">
+    //Place your content here accessing Model.Groups.ElementAt(i)
+</div>
+    }*@
+
+
+<div class="container-fluid" id="mapgrid">
+
+    @Html.Awe().InitPopupForm().Name("createPurchase").Group("purchase").Url(Url.Action("Create")).Success("itemCreated('PurchasesGrid')")
+
+    @*// opening the createPurchase popup will close the editPurchase and viceversa*@
+    @Html.Awe().InitPopupForm().Name("editPurchase").Group("purchase").Url(Url.Action("Edit")).Success("itemUpdated('PurchasesGrid')")
+
+    @*// used to call grid.api.select and emphasize the row*@
+    @(Html.Awe().InitPopupForm()
+    .Name("deletePurchase")
+    .Url(Url.Action("Delete"))
+    .Success("itemDeleted('PurchasesGrid')")
+    .Parameter("gridId", "PurchasesGrid")
+    .Height(200)
+    .Modal(true))
+
+    <div class="bar">
+        <div style="float: right;">
+            @(Html.Awe().TextBox("txtSearch").Placeholder("search...").CssClass("searchtxt") )
+        </div>
+        <button type="button" onclick="awe.open('createPurchase')" class="awe-btn">Create</button>
+    </div>
+    <div >
+
+        @(Html.Awe().Grid("MapperGrid")
+            .Url(Url.Action("GridGetItems"))
+            .Parent("txtSearch", "search")
+            .Groupable(false)
+            .Height(200)
+            .Columns(
+            new Column { Name = "Id", Width = 55 },
+            new Column { Name = "Target Label", Width = 100 },
+            new Column { Name = "Target Value", Width = 100 },
+            new Column { Name = "Cohort Label", Width = 100 },
+            new Column { Name = "Cohort Value", Width = 100 },
+            new Column { Name = "Condition", Width = 300 },
+            new Column { ClientFormat = Utils.EditFormat("editPurchase"), Width = 50 },
+            new Column { ClientFormat = Utils.DeleteFormat("deletePurchase"), Width = 50 }))
+
+    </div>
+
+    <div class="container">
+        <label for="sel1">Status:</label> 
+        <select class="form-control" id="sel1">
+            <option>Complete</option>
+            <option>Incomplete2</option>
+            <option>Impossible</option>
+        </select>   
+    </div>
+    <div class="container">
+        <div >
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>    </div>
+    <div class="container">
+        <div >
+            <label for="script">Script:</label>
+            <textarea class="form-control" rows="5" id="script"></textarea>
+        </div>    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#myTab").on("click", "a", function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    });
+</script>
+
+@*// these are generic/reusable, not specific to this Grid,
+    // so you can put them in your Site.js and use them all over your app
+    // they are used by the PopupForm helpers and executed when PopupForm form submit succeeds--%>*@
+<script type="text/javascript">
+    function itemDeleted(gridId) {
+        return function (res) {
+            var $grid = $("#" + gridId);
+            $grid.data('api').select(res.Id)[0].fadeOut(500, function () {
+                $(this).remove();
+                if (!$grid.find('.awe-row').length) $grid.data('api').load();
+            });
+        };
+    }
+
+    function itemUpdated(gridId) {
+        return function (item) {
+            var api = $('#' + gridId).data('api');
+            var xhr = api.update(item.Id);
+            $.when(xhr).done(function () {
+                var $row = api.select(item.Id)[0];
+                var altcl = $row.hasClass("awe-alt") ? "awe-alt" : "";
+                $row.switchClass(altcl, "awe-changing", 1).switchClass("awe-changing", altcl, 1000);
+            });
+        };
+    }
+
+    function itemCreated(gridId) {
+        return function (item) {
+            var $grid = $("#" + gridId);
+            var $row = $grid.data('api').renderRow(item);
+            $grid.find(".awe-tbody").prepend($row);
+            $row.addClass("awe-changing").removeClass("awe-changing", 1000);
+        };
+    }
+</script>

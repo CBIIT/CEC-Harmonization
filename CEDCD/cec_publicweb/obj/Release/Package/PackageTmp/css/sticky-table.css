@@ -1,0 +1,77 @@
+/* Sticky Table CSS Document */
+
+.enrollment .cedcd-table {
+  overflow:hidden;
+}
+
+.interiorTable {
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 400px;
+}
+
+.tablecontainer {
+  width:960px;
+  height:300px;
+  margin:50px auto;
+  overflow: hidden;
+}
+
+table#bigtable {
+  border:1px solid black;
+  border-collapse: collapse;
+}
+table#bigtable tr {
+}
+table#bigtable th {
+  padding: 1em;
+  background-color: #8EADFF;
+  border:1px solid gray;
+}
+table#bigtable td {
+  border:1px solid gray;
+  padding:1em;
+}
+
+.sticky-wrap {
+  overflow-x: auto;
+  position: relative;
+  margin-bottom: 1.5em;
+  width: 100%;
+  height:300px;
+}
+.sticky-wrap .sticky-thead,
+.sticky-wrap .sticky-col,
+.sticky-wrap .sticky-intersect {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .125s ease-in-out;
+  z-index: 50;
+  width: auto; /* Prevent table from stretching to full size */
+  padding: 1em;
+  background-color: #8EADFF;
+  border:1px solid gray;
+}
+.sticky-wrap .sticky-thead {
+  box-shadow: 0 0.25em 0.1em -0.1em rgba(0,0,0,.125);
+  z-index: 100;
+  width: 100%; /* Force stretch */
+  padding: 1em;
+  background-color: #8EADFF;
+  border:1px solid gray;
+}
+.sticky-wrap .sticky-intersect {
+  opacity: 1;
+  z-index: 150;
+}
+.sticky-wrap .sticky-intersect th {
+  background-color: #666;
+  color: #eee;
+}
+.sticky-wrap td,
+.sticky-wrap th {
+  box-sizing: border-box;
+  padding:1em;
+}

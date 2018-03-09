@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Dropdown Menu Test: HTML5/ARIA</title>
+	<link rel="shortcut icon" type="image/x-icon" href="http://www.washington.edu/favicon.ico" />
+	<link rel="stylesheet" href="../styles/main.css" type="text/css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="/micatest/docs/profiles/mica_distribution/modules/contrib/westat_nice_menus/js/westat_accessible_js2.js"></script>
+	<style>
+	#nav a { 
+		display: block;
+		text-decoration: none;
+		color: black;
+		padding: 2px 1em;
+	}
+	#nav a:hover, #nav a:focus { 
+  	background-color: #340449 !important;
+  	color: white !important;
+  	outline: none;
+	}
+	ul.menubar {
+  	margin: 0;
+		padding: 0 .25em;
+		list-style: none;
+		font-size: 1em;
+		height: 1.85em;
+		width: 50em;
+		border: 1px solid black;
+		background: #ddd;
+	}
+	ul.menubar > li {
+		float: left;
+		display: inline; position: relative;
+		margin: 0;
+		padding: .25em .35em; 
+		height: 1.25em;
+		width: 10em;
+	}
+	ul.menu {
+		position: absolute;
+		left: 0;
+		top: 1.75em;
+		display: none; 
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		font-weight: normal;
+		font-size: 100%;
+		border: 1px solid black;
+		background-color: #ccc;
+		width: 10em;
+	}
+	ul.menu li {
+		float: none;
+		display: block;
+		white-space: nowrap;
+	}
+	li.menu-hover, li.menu-focus {
+		background-color: #340449 !important;
+		color: white;
+		outline: none;
+	}
+	li.menu-hover > a, li.menu-focus > a { 
+		color: white !important;
+		outline: none;	
+	}
+	</style>
+</head>
+<body>
+	
+<h1>Dropdown Menu Test: Customized OAA Menubar</h1>
+		
+<p>This is one of several dropdown menus tested on Terrill Thompson's <a href="../index.html">Dropdown Menus Test Page</a>.</p>
+
+<h2>Description</h2>
+<p>This page uses HTML5/ARIA primarily using methods from the Menubar example on the <a href="http://oaa-accessibility.org/example/25/">Open AJAX Alliance</a> website.</p>
+
+<div role="navigation" aria-label="Main menu" tabindex="-1">
+	<ul id="nav" class="menubar root-level" role="menubar">
+		<li class="menu-item" role="menuitem" tabindex="0" aria-haspopup="true" title="About Menu">
+			About
+			<!--<ul id="about" role="menu" class="menu" aria-hidden="true">
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">News</a></li>
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Governance</a></li>
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Diversity</a></li>
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">ContactUs</a></li>
+			</ul>-->
+		</li>
+		<li class="menu-parent" role="menuitem" tabindex="0" aria-haspopup="true" title="Academics Menu">
+			Academics
+			<ul role="menu" class="menu" aria-hidden="true">
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Degree Programs</a></li>
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Faculty</a></li>
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Distance Learning</a></li>
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Libraries</a></li>
+			</ul>
+		</li>
+		<li class="menu-parent" role="menuitem" tabindex="0" aria-haspopup="true" title="Admissions Menu">
+			Admissions
+			<ul role="menu" class="menu" aria-hidden="true">
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Undergraduate</a></li>
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Tuition</a></li>
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Financial Aid</a></li>
+			</ul>
+		</li>
+		<li class="menu-parent" role="menuitem" tabindex="0" aria-haspopup="true" title="Visitors Menu">
+			Visitors
+			<ul role="menu" class="menu" aria-hidden="true">
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Events</a></li>
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Campus Map</a></li>
+				<li role="menuitem" class="menu-item" tabindex="-1">
+					<a href="../generic.html">Parking</a></li>
+			</ul>
+		</li>
+	</ul>	
+</div>
+		
+<p>To exit the menu, <a href="#">press tab again</a> and you should land safely in this paragraph.</p>		
+
+<h2>Observations</h2>
+	<ul>
+		<li>This is a highly accessible menu that uses ARIA markup to provide additional semantics that help screen reader users to fully understand the interface as they interact with it. This is very easy to use with JAWS and NVDA, and works beautifully with keyboard alone.</li>
+		<li>This menu closely closely follows the DHTML Style Guide.</li>
+		<li>Each top-level menu item is in the tab order (tabindex="0") so users can still access those items using conventional methods. If they press enter to select one of those items as they typically would in the old model, a submenu appears. As currently implemented they must use the down arrow to navigate into the open submenu. Each menu item has tabindex="-1", which could be changed to tabindex="0" when their parent menu becomes visible if we desired that functionality. However it might be preferable to preserve tab solely for navigating between top-level menu items.</li>
+	</ul>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+screenshot  = screenshot.png
+name        = Mica Bootstrap subtheme
+description = Use this theme to customize your Mica. Parent theme will be overridden during Mica upgrade, but not this one.
+core        = 7.x
+base theme  = mica_bootstrap
+
+stylesheets[all][] = css/mica_subtheme.css
+stylesheets[all][] = css/westat.css
+
+scripts[] = js/jquery.cookie.js
+scripts[] = js/westat.js
+
+regions[leaderboard]     = 'Leaderboard'
+regions[navigation]     = 'Navigation'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+; Information added by obiba.org packaging script on Mon, 07 Apr 2014 14:35:07 -0400
+version = 7.x-9.1 
+project = mica_subtheme
+datestamp = 1396895707

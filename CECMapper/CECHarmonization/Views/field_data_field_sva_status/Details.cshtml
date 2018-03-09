@@ -1,0 +1,43 @@
+﻿@model MicaData.field_data_field_sva_status
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>field_data_field_sva_status</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bundle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bundle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.revision_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.revision_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.field_sva_status_value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.field_sva_status_value)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

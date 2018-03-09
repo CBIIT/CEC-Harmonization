@@ -1,0 +1,27 @@
+﻿@model CECHarmonization.ViewModels.TaxonomiesViewModel
+@using MvcCheckBoxList.Model
+@{
+    ViewBag.Title = "TaxonomyIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select one or more Terms</h2>
+
+<p>
+    <label>Output:</label>
+    @using (Html.BeginForm("TermPost", "Taxonomy", FormMethod.Get))
+    {
+        <div class="margin_bottom10">
+            @Html.CheckBoxListFor(
+                    x => x.PostedTerms.TermIDs,
+                    x => x.AvailableTerms,
+                    x => x.tid,
+                    x => x.name,
+                    x => x.SelectedTerms,
+                    Position.Vertical)
+        </div>
+        <input class="green" type="submit" value="Enter" />
+    }
+</p>
+
+

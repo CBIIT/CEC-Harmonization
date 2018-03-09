@@ -1,0 +1,126 @@
+﻿@model CECHarmonization.Models.TreeView
+@using Omu.AwesomeMvc
+@using CECHarmonization.Controls
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var IDs = "";
+}
+
+<link rel="stylesheet" href="~/Content/jstree/themes/default/style.min.css" />
+
+<script src="~/Scripts/libs/jquery.js"></script>
+<script src="~/Scripts/jstree.min.js"></script>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <h3>Export Metadata to Excel based on selected Taxonomy</h3><hr />
+    </div>
+
+    <div id="event_result"></div>
+
+    @*<h3>Taxonomy</h3>*@
+    <div id="FileTree" class="col-sm-3" style="font-size:x-small;">
+        <ul>
+            @Html.RenderJsTreeNodes(Model.Nodes)
+            
+        </ul>
+    </div>
+    @*<h3>Variables</h3>*@
+    <div id="VariableGrid" class="col-sm-9" style="font-size:x-small;">
+       
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function ($) {
+        $('#FileTree').jstree({
+            "checkbox": {
+                "keep_selected_style": false
+            },
+           "plugins": ["checkbox"],
+        });
+
+
+        $('#FileTree').on(
+            'changed.jstree', function (e, data) {
+                var i, j, r = [];
+                for (i = 0, j = data.selected.length; i < j; i++) {
+                    r.push(data.instance.get_node(data.selected[i]).text);
+                }
+
+               //  no need to show this on the page... send to controller for when export to excel
+               // $('#event_result').html('Selected: ' + r.join(', '));
+
+                CallContoller(JSON.stringify(data.selected), JSON.stringify(data.node.children_d), JSON.stringify(r.join(', ')))
+            })
+
+
+        $("#FileTree").bind(
+        "select_node.jstree", function (evt, data) {
+            var selected_node = data.node;
+            
+            //alert(JSON.stringify(data.selected))
+            //CallContoller(JSON.stringify(data.selected), JSON.stringify(data.node.children_d))
+        });
+
+        $("#FileTree").bind(
+        "deselect_node.jstree", function (evt, data) {
+            var selected_node = data.node;
+            //alert(JSON.stringify(data.selected))
+            //CallContoller(JSON.stringify(data.selected), JSON.stringify(data.node.children_d))
+        });
+
+    });
+
+
+    function CallContoller(id, children, selectedText) {
+        $.ajax({
+            url: '@Url.Action("GetTreeSelection", "PreMap")',
+            type: 'POST',
+            dataType: 'html',
+            cache: false,
+            data: { 'id': id , 'children' : children, 'selectedText' : selectedText},
+            success: function (result) {
+
+                // the Display Grid View comes back 
+                $("#VariableGrid").html(result);
+            },   
+            error: function () {
+                alert('Error occured');
+            }
+        });
+    }
+
+</script>
+
+
+<script>
+    $(function () {
+        //select/unselect all
+        $(document).on('click', '.awe-grid [name=chkAll]', function () {
+            var isChecked = $(this).prop('checked');
+            $(this).closest('.awe-grid').find('[name=id]').prop('checked', isChecked);
+        });
+
+        //get selection
+        $('#btnGetSelection').click(function () {
+            var arr = $('#Variable_view [name=id]:checked').map(function () {
+                return $(this).val();
+            }).get();
+
+            $('#log').html(JSON.stringify(arr));
+        });
+    });
+</script>
+
+
+<style type="text/css">
+    #FileTree.jstree-leaf > a > ins {
+        background-position: -2px -19px !important;
+    }
+</style>

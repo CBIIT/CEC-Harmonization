@@ -1,0 +1,266 @@
+/* style overrides */
+#edit_cohort #cedcd-main-content {
+  padding:0rem 1.5rem 1.5rem 1.5rem;
+  background-color:#e8e8e6;
+  margin-bottom: 1rem;
+}
+
+#edit_cohort #section {
+  background-color:#fff;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+#save_timestamp {
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+}
+
+/* Toolbar Styles */
+
+.floatingToolbar {
+  position:fixed;
+  top:554px;
+  width:70px;
+  right: 0;
+  z-index: 900;
+}
+.floatingToolbar .btn-primary {
+  border-width: 0;
+  border-radius: 0;
+  min-width: 70px;
+  padding: 1rem 0;
+}
+
+.floatingToolbar .glyphicon {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.floatingToolbar .button-text {
+  background-color: #404040;
+  padding: 0 0.5rem;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+/* End Toolbar Styles */
+
+/* Nav Tab Styles */
+#inputTabs {
+}
+
+.nav-justified-flex {
+  display: flex;
+}
+
+.nav-tabs.nav-justified-flex > li {
+  display: flex;
+  float: none;
+}
+
+#inputTabs.nav-tabs.nav-justified-flex > li {
+  flex:2 0 0%;
+}
+
+#inputTabs.nav-tabs.nav-justified-flex > li:nth-of-type(3), #inputTabs.nav-tabs.nav-justified-flex > li:nth-of-type(6) {
+  flex-grow: 3;
+}
+
+#inputTabs.nav-tabs.nav-justified-flex > li:last-of-type {
+  flex-grow: 1;
+}
+
+.nav-tabs.nav-justified-flex > li > a {
+  background-color:#404040;
+  color:#fff;
+  margin-right: 0;
+  border-radius: 0px;
+  margin-bottom: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  border-right:1px solid #fff;
+  justify-content: center;
+}
+
+#inputTabs.nav-tabs.nav-justified-flex > li > a {
+  flex: 1 0 0%;
+}
+
+
+#inputTabs.nav-tabs.nav-justified-flex > li:last-of-type > a {
+  background-color:#808080;
+  border-right: none;
+}
+
+.nav-tabs.nav-justified-flex > .active > a, .nav-tabs.nav-justified-flex > .active > a:hover, .nav-tabs.nav-justified-flex > .active > a:focus {
+  border: 1px solid #ddd;
+  background-color: #135b5d;
+}
+
+.nav.nav-justified-flex > li > a:hover, .nav.nav-justified-flex > li > a:focus {
+  background-color:#009589;
+}
+
+@media (min-width: 768px) {
+  .nav-tabs.nav-justified > li > a {
+    margin-bottom: 0;
+  }
+  
+  .nav-tabs.nav-justified-flex > .active > a, .nav-tabs.nav-justified-flex > .active > a:hover, .nav-tabs.nav-justified-flex > .active > a:focus, .nav > li > a:hover, .nav > li > a:focus {
+    border-bottom-color: #fff;
+  }
+}
+
+.tab-intro {
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.tab-intro h2 {
+  font-weight: bold;
+  color:#62269E;
+  font-size: 2.2rem;
+  margin:0;
+}
+
+.tab-intro p {
+  font-size:1.6rem;
+  color:#62269E;
+  font-style: italic;
+}
+
+.admin-search-container {
+  float: right;
+  padding:1rem;
+}
+
+.btn-adminsearch {
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  border-left: none;
+}
+/* End Nav Tab Styles */
+
+/* Panel Styles */
+#edit_cohort .panel {
+  margin-bottom: 1.5rem;
+  border:none;
+}
+
+#edit_cohort .panel > .panel-heading {
+  color:#135b5d;
+  font-weight:bold;
+  background-color: white;
+  border-bottom:0px solid green;
+  padding:0;
+}
+
+#edit_cohort .panel > .panel-heading h3, .section-17 fieldset h4, .section-30 fieldset h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+  text-indent: -6rem;
+  padding-left: 6rem;
+}
+
+#edit_cohort .panel-default > .panel-heading .badge, .section-17 fieldset h4 .badge, .section-30 fieldset h4 .badge {
+  background-color: #BFE3E0;
+  color: #135b5d;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  min-width: 6rem;
+  display: inline;
+}
+
+.panel-body h4 {
+  font-weight: bold;
+}
+/* End Panel Styles */
+
+.radio-inline {
+    vertical-align: top;
+}
+
+.bar {
+    height: 18px;
+    background: green;
+}
+
+.table-caption {
+    color: rgb(0, 128, 0);
+    font-weight: bold;
+    font-size:1.8rem;
+}
+
+/** Individual Question overrides ***/
+#edit_cohort .form-control:focus, #edit_cohort textarea:focus { /* need to replicate full focus state for textarea */
+  border-color:#008e83;
+}
+
+.input-invalid {
+    background-color:#fff4c8;
+}
+
+.input-invalid input {
+    background-color:white !important;
+}
+
+.field-container {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.row-space .row {
+  margin-left: 0;
+  margin-right: 0;
+  padding-top:0.5rem;
+  padding-bottom:0.5rem;
+}
+
+input#cohort_name, input#cohort_acronym {
+  padding:6px 12px;
+}
+
+/* End individual Question Overrides */
+
+/* Special Section Styling */
+.section-17 .bordered-row, .section-30 .bordered-row {
+  padding-top:1.5rem;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid #b7b5b0;
+}
+
+.section-17 .radio-group legend, .section-30 .radio-group legend {
+  margin:0;
+  padding:0;
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.section-23 #edit_cohort thead th {
+  text-align: center;
+}
+
+/* for the reviewer "what's changed" well */
+.change-label {
+}
+
+.change-link {
+}
+
+.change-well {
+  width: 100%;
+}
+
+.field-has-changes {
+  margin-bottom: 0.5rem;
+}

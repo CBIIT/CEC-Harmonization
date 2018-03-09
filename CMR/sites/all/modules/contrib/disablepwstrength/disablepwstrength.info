@@ -1,0 +1,10 @@
+name = Disable Password Strength Check
+description = Disable Drupal's built in password strength checker on the user registration and user edit forms.
+dependencies[] = user
+core = 7.x
+; Information added by drupal.org packaging script on 2013-09-30
+version = "7.x-1.1+0-dev"
+core = "7.x"
+project = "disablepwstrength"
+datestamp = "1380569604"
+

@@ -1,0 +1,35 @@
+﻿@model CECHarmonization.Models.Mapper
+@using Omu.AwesomeMvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.DisplayFor(model => model.selectedTarget)
+@Html.HiddenFor(model => model.selectedCohorts)
+
+
+<div class="container">
+    <h3>Mapping Selection Page</h3>
+    <div class=" row">
+        <div class="col-sm-8">
+
+            @*@using (Html.BeginForm("Edit", "MappingSelection", FormMethod.Post))
+            {*@
+            <form>
+                <p>Target Dataset:  @(Html.Awe().AjaxDropdownFor(o => o.selectedTargetDatasetId).Parameter("type", "harmonization").Url(Url.Action("GetDatasetItems", "Mapper")))</p>
+                <br />
+                <p>Target Variable: @(Html.Awe().AjaxDropdownFor(o => o.selectedTargetVariableId).Parent(o => o.selectedTargetDatasetId).Url(Url.Action("GetVariableItems", "Mapper")))</p>
+
+                <button name="action" value="delete">Delete</button>
+                <button name="action" value="save">Save Changes</button>
+                @Html.ActionLink("Add", "Edit", "MappingSelection", Model)
+            </form>
+
+            @foreach (var x in Model.selectedCohorts)
+            {
+                <li><a href="#tabs-@(x.nid)">@x.dataset_name</a>--@x.title </li>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model CECHarmonization.Models.TreeView
+@using Omu.AwesomeMvc
+
+
+@{
+    var Ids = ViewBag.IDs;
+    string CNT = ViewBag.CNT;
+    if (String.IsNullOrEmpty(CNT))
+    {
+        CNT = "0";
+    }
+}
+<div class="row">
+    <div class="col-md-6" >
+        @*@Html.Awe().TextBox("txtSearch").Placeholder("search Study Name...").CssClass("searchtxt")*@
+        <div><h4>@Html.ActionLink("Export all records to Excel", "ExportAllToExcel", "GridExport")</h4></div>
+
+    </div>
+    <div class="col-lg-6">
+        
+    </div>
+</div>
+@(Html.Awe().Grid("Variable_view").Columns(new[]{
+        new Column{Name = "dataset_name",  Header = "CMR Dataset Name", Resizable = true, Group = false, GroupRemovable = true, Groupable = true, GroupRank = 1, Width =75},
+        new Column{Name = "title", Header = "Variable Name",  Width = 70},
+        new Column{Name = "field_label_value", Header = "Variable Description", Resizable = true, Group = false, GroupRemovable = true, Groupable = true, GroupRank = 2, Width = 75},
+        new Column{Name = "field_variable_categories_name",  Header = "Variable Categories", Resizable = true , Width = 45},
+        new Column{Name = "field_variable_categories_label",  Header = "Variable Categories Label", Resizable = true, Width = 90},
+        new Column{Name = "field_variable_categories_missing",  Header = "Variable Categories Missing", Resizable = true, Width = 40},
+        new Column{Name = "field_unit_value",  Header = "Units", Resizable = true , Width = 40},
+        new Column{Name = "field_value_type_value",  Header = "Value Type", Resizable = true , Width = 40}
+        //new Column{Name = "study_name", Header = "Study Name",  Width = 70}
+    })
+
+    .ShowHeader(true)
+    .ShowFooter(false)
+    .Parameter("IDList", Ids)
+    .Parent("txtSearch", "search")
+    .Height(500)
+    .Width(700)
+    .ShowGroupBar(false)
+    .Groupable(false)
+    .ShowGroupedColumn(false)
+    .PageSize(200) // binds to GridParams.PageSize
+    .Parameter("collapsed", true)
+    .Persistence(Persistence.Session)
+    .PersistenceKey("p1")
+    .Url(Url.Action("GetItems", "PreMap")))
+
+
+

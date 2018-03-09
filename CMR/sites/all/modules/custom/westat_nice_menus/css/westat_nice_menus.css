@@ -1,0 +1,23 @@
+.menubar a { 
+		display: block;
+
+	}
+
+
+	ul.menubar > li {
+		/*float: left;
+		display: inline; position: relative;*/
+
+	}
+	.menubar ul.menu {
+		position: absolute;
+		left: 0;
+		top: 20px;
+		display: none; 
+	}
+        .menubar ul.menu ul {top:0;}
+	ul.menu li {
+		float: none;
+		display: block;
+		white-space: nowrap;
+	}

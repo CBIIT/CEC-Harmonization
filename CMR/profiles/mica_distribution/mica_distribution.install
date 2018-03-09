@@ -1,0 +1,383 @@
+<?php
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function mica_distribution_install() {
+
+  // Enable some standard blocks.
+  $mica_theme = 'mica_subtheme';
+  $admin_theme = 'seven';
+
+  _mica_distribution_set_default_themes($mica_theme, $admin_theme);
+
+  _mica_distribution_drupal_default_blocks($mica_theme, $admin_theme);
+
+  // Enable some standard blocks.
+  _mica_distribution_default_block($mica_theme, $admin_theme);
+
+  // rebuild permissions
+  node_access_rebuild();
+
+  watchdog('mica', 'Mica Distribution profile installed', array(), WATCHDOG_INFO);
+}
+
+/*
+ * Set mica theme as default
+ * See http://drupal.org/node/177868
+ */
+function _mica_distribution_set_default_themes($mica_theme, $admin_theme) {
+
+  $mica_theme = 'mica_subtheme';
+  theme_enable(array($mica_theme));
+  variable_set('theme_default', $mica_theme);
+  cache_clear_all();
+}
+
+function _mica_distribution_include_theme_file($theme_file) {
+  if (file_exists(DRUPAL_ROOT . '/profiles/mica_distribution/themes/' . $theme_file)) {
+    require_once DRUPAL_ROOT . '/profiles/mica_distribution/themes/' . $theme_file;
+  }
+  else if (file_exists(DRUPAL_ROOT . '/sites/all/themes/' . $theme_file)) {
+    require_once DRUPAL_ROOT . '/sites/all/themes/' . $theme_file;
+  }
+}
+
+/**
+ * Copied from profile standard_install.install
+ * @param $default_theme
+ * @param $admin_theme
+ */
+function _mica_distribution_drupal_default_blocks($default_theme, $admin_theme) {
+  // Enable some standard blocks.
+  $blocks = array(
+    array(
+      'module' => 'system',
+      'delta' => 'powered-by',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => BLOCK_REGION_NONE,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'help',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'help',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user',
+      'delta' => 'login',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => BLOCK_REGION_NONE,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'search',
+      'delta' => 'form',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => -10,
+      'region' => BLOCK_REGION_NONE,
+      'pages' => '',
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array(
+    'module',
+    'delta',
+    'theme',
+    'status',
+    'weight',
+    'region',
+    'pages',
+    'cache'
+  ));
+  foreach ($blocks as $block) {
+    $query->values($block);
+  }
+  $query->execute();
+
+}
+
+function _mica_distribution_no_region($module, $delta, $theme = 'seven') {
+  db_update('block')
+    ->fields(array(
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    ))
+    ->condition('module', $module)
+    ->condition('delta', $delta)
+    ->condition('theme', $theme)
+    ->execute();
+}
+
+function _mica_distribution_default_block($mica_theme = 'mica_subtheme', $admin_theme = 'seven') {
+  $values = array(
+    array(
+      'module' => 'user',
+      'delta' => 'login',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'mica',
+      'delta' => 'powered-by-mica',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 30,
+      'region' => 'footer',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'pages' => '*',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'news-recent_news',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'pages' => '<front>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'navigation',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 15,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'pages' => '<front>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'events_calendar-block_2',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'sidebar_first',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'pages' => '<front>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'blog',
+      'delta' => 'recent',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'comment',
+      'delta' => 'recent',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user',
+      'delta' => 'online',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'forum',
+      'delta' => 'active',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'forum',
+      'delta' => 'new',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'logintoboggan',
+      'delta' => 'logintoboggan_logged_in',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => -46,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main-menu',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'navigation',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'search',
+      'delta' => 'form',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 3,
+      'region' => 'navigation',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'user-menu',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 5,
+      'region' => 'navigation',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'mica_bootstrap_config',
+      'delta' => 'bootstrap-login',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'navigation',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array(
+    'module',
+    'delta',
+    'theme',
+    'status',
+    'weight',
+    'region',
+    'visibility',
+    'pages',
+    'cache'
+  ));
+  foreach ($values as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+
+  // not title for menus
+  _mica_distribution_set_block_title('<none>', 'system', 'main-menu');
+  _mica_distribution_set_block_title('<none>', 'system', 'user-menu');
+  _mica_distribution_set_block_title('<none>', 'user', 'login');
+  _mica_distribution_set_block_title('<none>', 'search', 'form');
+
+  // only authenticated user can see navigation block
+  $query = db_insert('block_role')->fields(array('module', 'delta', 'rid'));
+  $query->values(array(
+    'module' => 'system',
+    'delta' => 'navigation',
+    'rid' => 2,
+  ));
+  $query->execute();
+
+  // set a title to upcoming events block
+  db_update('block')
+    ->fields(array('title' => 'Upcoming Events'))
+    ->condition('delta', 'events_calendar-block_2')
+    ->execute();
+}
+
+/**
+ * Clear registry for renamed profile
+ *
+ * Implements hook_update_N()
+ */
+function mica_distribution_update_7144(&$sandbox) {
+  cache_clear_all('lookup_cache', 'cache_bootstrap');
+  cache_clear_all('variables', 'cache_bootstrap');
+  cache_clear_all('module_implements', 'cache_bootstrap');
+
+  registry_rebuild(); // At lower level
+}
+
+function _mica_distribution_set_block_title($title, $module, $delta, $mica_theme = 'mica_subtheme') {
+  db_update('block')
+    ->fields(array('title' => $title))
+    ->condition('module', $module)
+    ->condition('delta', $delta)
+    ->condition('theme', $mica_theme)
+    ->execute();
+}

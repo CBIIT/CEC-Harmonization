@@ -1,0 +1,45 @@
+﻿
+@using Omu.AwesomeMvc
+@{
+    ViewBag.Title = "VariableIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var IDs = (TempData["IDs"]) as string;
+   
+
+} 
+
+<h2>VariableIndex</h2>
+
+<div style="float: left; width: 80%;">
+
+
+
+    @(Html.Awe().Grid("Variable_view").Columns(new[]{
+        new Column{Name = "title", Width = 155},
+        new Column{Name = "field_label_value", Group = true,
+            GroupRemovable = true, Groupable = true, GroupRank = 1},
+        new Column{Name = "dataset_name",  Group = false,
+            GroupRemovable = true, Groupable = true, GroupRank = 2},
+        new Column{Name = "field_variable_categories_name", Width = 180},
+        new Column{Name = "field_variable_categories_label", Width = 180},
+        new Column{Name = "field_variable_categories_missing", Width = 180}
+        //,
+        //new Column{Name = "Price", Width = 80},
+        //new Column{Name = "Location"},
+        //new Column{Name = "Chef.FirstName,Chef.LastName", ClientFormat = ".ChefName", Header = "Chef", FooterClientFormat = ".ChefCount" }
+    })
+    .Parameter("IDList", IDs)
+    .Height(600)
+    .ShowGroupBar(true)
+    .Groupable(true)
+    .ShowGroupedColumn(true)
+    .PageSize(40) // binds to GridParams.PageSize
+    .Parameter("collapsed", true)
+    .Persistence(Persistence.Session)
+    .PersistenceKey("p1")
+    .Url(Url.Action("GetItems", "Taxonomy")))
+
+
+</div>
+
+

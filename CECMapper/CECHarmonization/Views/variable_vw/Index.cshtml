@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MicaData.variable_vw>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.vid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.field_label_value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataset_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entity_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entity_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.delta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.field_variable_categories_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.field_variable_categories_label)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.field_variable_categories_missing)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.vid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.field_label_value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataset_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.entity_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.entity_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.delta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.field_variable_categories_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.field_variable_categories_label)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.field_variable_categories_missing)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

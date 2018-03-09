@@ -1,0 +1,19 @@
+Could not find a part of the path 'C:\CEC Sites\Source Code\cecharm\cec_publicweb\tmp\messages_12-02-2018.log'.<br /><br />   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)<br />   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)<br />   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)<br />   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)<br />   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)<br />   at System.IO.StreamWriter..ctor(String path, Boolean append)<br />   at cec_publicweb.helper.WriteToLog(String path, String text) in c:\CEC Sites\Source Code\cecharm\cec_publicweb\helper.cs:line 1876<br />   at cec_publicweb.CECPage.LogError(String text, Exception ex) in c:\CEC Sites\Source Code\cecharm\cec_publicweb\helper.cs:line 1865<br />   at cec_publicweb.userinfo.registrationBtnClicked(Object sender, EventArgs e) in c:\CEC Sites\Source Code\cecharm\cec_publicweb\userinfo.aspx.cs:line 174<br />   at System.Web.UI.WebControls.LinkButton.OnClick(EventArgs e)<br />   at System.Web.UI.WebControls.LinkButton.RaisePostBackEvent(String eventArgument)<br />   at System.Web.UI.WebControls.LinkButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)<br />   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)<br />   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)<br />   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Could not find a part of the path 'C:\CEC Sites\Source Code\cecharm\cec_publicweb\tmp\messages_12-02-2018.log'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at cec_publicweb.helper.WriteToLog(String path, String text) in c:\CEC Sites\Source Code\cecharm\cec_publicweb\helper.cs:line 1876
+   at cec_publicweb.CECPage.LogError(String text, Exception ex) in c:\CEC Sites\Source Code\cecharm\cec_publicweb\helper.cs:line 1865
+   at cec_publicweb.userinfo.registrationBtnClicked(Object sender, EventArgs e) in c:\CEC Sites\Source Code\cecharm\cec_publicweb\userinfo.aspx.cs:line 174
+   at System.Web.UI.WebControls.LinkButton.OnClick(EventArgs e)
+   at System.Web.UI.WebControls.LinkButton.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.WebControls.LinkButton.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   at System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

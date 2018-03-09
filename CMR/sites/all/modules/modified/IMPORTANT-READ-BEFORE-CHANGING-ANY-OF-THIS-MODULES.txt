@@ -1,0 +1,15 @@
+Very Important
+++++++++++++++++++++
+
+Modules in this folder have been modified. It is crutial to open the modified files and make note of the changes before
+overwriting this module if there is a need to do so.
+
+In the modified files, search for "Patched by Albert Sindjui" to quickly get to the modified section:
+
+** Entityreference module
+***************************
+    * Modified files:
+        entityreference.module
+        
+    * Modified lines:
+        778 to 784

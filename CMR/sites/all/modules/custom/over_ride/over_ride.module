@@ -1,0 +1,129 @@
+<?php
+
+//function over_ride_form_alter(&$form, $form_state, $form_id) {
+//  global $form_values;
+//  switch ($form_id) {
+//    case 'user_login_block':
+//      $form['links']['#weight'] = 100;
+//      break;
+//  }
+//}
+
+/**
+ * Implements hook_node_view_alter().
+ */
+//function over_ride_node_view_alter(&$build) {
+//    if ($build['#view_mode'] === 'footer_area' && $build['#bundle'] === 'variable') {
+//    $variable_node = $build['#node'];
+//    $variable_wrapper = entity_metadata_wrapper('node', $variable_node->nid);
+//    $dataset = $variable_wrapper->field_dataset->value();
+//    if (!empty($dataset)) {
+//
+//      $dataset_wrapper = entity_metadata_wrapper('node', $dataset->nid);
+//
+//      // If has harmonization
+//      $has_harmonization = _mica_datasets_has_harmonization($dataset_wrapper->getIdentifier());
+//
+//      if ($dataset_wrapper->field_dataset_type->value() !== 'study' && $has_harmonization) {
+//
+//        require_once('mica_datasets.pages.harmonization.inc');
+//
+//        mica_datasets_prepare_prettify();
+//
+//        $header = array(
+//          'study' => t('Study'),
+//          'status' => t('Status'),
+//          'comment' => t('Comment'),
+//          'script' => t('Script'),
+//        );
+//        $options = array();
+//        $status_values = field_info_field('field_sva_status');
+//
+//        $sva_query = new EntityFieldQuery();
+//        $sva_results = $sva_query->entityCondition('entity_type', 'node')
+//          ->entityCondition('bundle', 'study_variable_attributes')
+//          ->fieldCondition('field_sva_variable', 'nid', $variable_node->nid)
+//          ->execute();
+//        $svas = empty($sva_results['node']) ? array() : node_load_multiple(array_keys($sva_results['node']));
+//        foreach ($svas as $study_variable_attributes) {
+//          $sva_wrapper = entity_metadata_wrapper('node', $study_variable_attributes);
+//          // comment is not showing in the right language
+//          if (function_exists('i18n_language')) {
+//            $sva_wrapper->language->set(i18n_language()->language);
+//          }
+//          $study_wrapper = entity_metadata_wrapper('node', $sva_wrapper->field_sva_study->getIdentifier());
+//          //chek if a study is atteched the varibale
+//          if (_mica_datasets_has_study($study_wrapper) && $study_wrapper->access('view')) {
+//
+//            $script = $sva_wrapper->field_sva_script->value() ? $sva_wrapper->field_sva_script->value() : '';
+//            $script = _mica_datasets_html_truncated(
+//              $script, t('script'), 200, TRUE
+//            );
+//
+//            $comment = $sva_wrapper->field_sva_comment->value() ? $sva_wrapper->field_sva_comment->value() : '';
+//            $comment = _mica_datasets_html_truncated($comment, t('comment'), 200, FALSE);
+//
+//            if ($sva_wrapper->access('view') == FALSE) {
+//              $status = 'forbidden';
+//              $status_label = t('Access Denied');
+//              $script = NULL;
+//              $comment = NULL;
+//            }
+//            elseif (!empty($study_variable_attributes->field_sva_status)) {
+//              $status = $sva_wrapper->field_sva_status->value();
+//              $status_label = $status_values['settings']['allowed_values'][$status];
+//            }
+//            else {
+//              $status = 'undetermined';
+//              $status_label = t('Undetermined');
+//              $script = NULL;
+//            }
+//
+//            $name = $study_wrapper->field_acroym->value() ? $study_wrapper->field_acroym->value() : $study_wrapper->title->value();
+//            $status = array(
+//              'path' => _mica_datasets_get_status_icon($status), 
+//              'alt' => $status_label,
+//              'title' => $status_label,
+//            );
+//            $status = theme('image', $status) . "</div>";
+//
+//            $option = array(
+//              'study' => $name,
+//              'status' => $status,
+//              'comment' => truncate_utf8($comment, 100, FALSE, TRUE),
+//              'script' => $script,
+//            );
+//
+//            if ($sva_wrapper->access('view')) {
+//              $header['view'] = '';
+//              $option['view'] = "<a href='" . url('node/' . $sva_wrapper->getIdentifier()) . "'>" . t('View') . "</a>";
+//            }
+//
+//            $options[] = $option;
+//          }
+//        }
+//        $form_dataset_harmonization_legend = drupal_get_form('mica_datasets_harmonization_legend_form');
+//        $build['harmonization'] = array(
+//          '#type' => 'fieldset',
+//          '#title' => t('Harmonization'),
+//          '#weight' => 50,
+//          '#collapsible' => TRUE,
+//          '#collapsed' => FALSE,
+//          'legend' => array(
+//            '#markup' => drupal_render($form_dataset_harmonization_legend),
+//          ),
+//          'table' => array(
+//            '#markup' => theme(
+//              'table', array('header' => $header, 'rows' => $options, 'empty' => t('No harmonization found'))
+//            ),
+//          ),
+//          'overview' => array(
+//            '#markup' => "<p><a href='" . url("node/" . $dataset_wrapper->getIdentifier() . "/dataset-harmonization") . "'><b>" . t(
+//                "View @title Harmonization", array('@title' => $dataset_wrapper->title->value())
+//              ) . "</a></b></p>",
+//          ),
+//        );
+//      }
+//    }
+//  }
+//}

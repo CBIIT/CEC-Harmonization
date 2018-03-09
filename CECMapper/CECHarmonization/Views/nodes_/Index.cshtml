@@ -1,0 +1,221 @@
+﻿@model IEnumerable<MicaData.node>
+@using Omu.AwesomeMvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="table-responsive, table-bordered">
+    <table class="table">
+        <tr>
+            @Html.Awe().AjaxCheckboxList("Tax").Url(Url.Action("GetItems", "taxonomy_vocabulary_")) @*// gets data from taxonomy_vocabulary Controller - GetItems; url specified by .Url extension*@
+        </tr>
+        <tr>
+            @Html.Awe().AjaxCheckboxList("Terms").Url(Url.Action("GetItems", "taxonomy_term_data_")).Parent("Tax")  @*// gets data from taxonomy_vocabulary Controller - GetItems; url specified by .Url extension*@
+        </tr>
+    </table>
+</div>
+
+@*@(Html.Awe().Grid("MultiselectGrid")
+                .Url(Url.Action("GetTaxonomy"))
+                .Height(400)
+                .Selectable(SelectionType.Multiple)
+                .Columns(
+                new Column { Name = "vid", Width = 10 },
+                new Column { Name = "name", Width = 50 })
+    )
+
+    <button id="btnSelectAll" class="awe-btn">select all</button>
+    <button id="btnDeselectAll" class="awe-btn">deselect all</button>
+    <button id="btnSelectByPrice" class="awe-btn">select where price > 50</button>
+
+    <fieldset>
+        <legend>selection</legend>
+        <div id="selection"  class="wwrap"></div>
+    </fieldset>*@
+
+
+
+
+
+@(Html.Awe().Grid("Variable_view")
+    .Columns(new[]{
+        new Column{Name = "title", Width = 155},
+        new Column{Name = "field_label_value", Group = true,
+            GroupRemovable = true, Groupable = true, GroupRank = 1},
+        new Column{Name = "dataset_name",  Group = false,
+            GroupRemovable = true, Groupable = true, GroupRank = 2},
+        new Column{Name = "field_variable_categories_name", Width = 180},
+        new Column{Name = "field_variable_categories_label", Width = 180},
+        new Column{Name = "field_variable_categories_missing", Width = 180}
+        //,
+        //new Column{Name = "Price", Width = 80},
+        //new Column{Name = "Location"},
+        //new Column{Name = "Chef.FirstName,Chef.LastName", ClientFormat = ".ChefName", Header = "Chef", FooterClientFormat = ".ChefCount" }
+    })
+    .Height(600)
+    .ShowGroupBar(true)
+    .Groupable(true)
+    .ShowGroupedColumn(true)
+    .PageSize(40) // binds to GridParams.PageSize
+    .Parameter("collapsed", true)
+    .Persistence(Persistence.Session)
+    .PersistenceKey("p1")
+    .Url(Url.Action("GetItems"))
+)
+
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.vid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.language)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.changed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.promote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sticky)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tnid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.translate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.uuid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mica_origin_url)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.vid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.language)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.changed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.promote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sticky)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tnid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.translate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.uuid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mica_origin_url)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.nid }) |
+                @Html.ActionLink("Details", "Details", new { id=item.nid }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.nid })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#MultiselectGrid')
+            .on('aweselect', function () {
+                var api = $('#MultiselectGrid').data('api');
+
+                var selectedItems = $('#MultiselectGrid').data('api').getSelection();
+                $('#selection').html(JSON.stringify(selectedItems));
+            })
+            .on('aweload', function () {
+                $('#selection').empty();
+            });
+
+        $('#btnSelectAll').click(function () {
+            $('#MultiselectGrid .awe-row').addClass('awe-selected');
+            $('#MultiselectGrid').trigger('aweselect');
+        });
+
+        $('#btnDeselectAll').click(function () {
+            $('#MultiselectGrid .awe-row').removeClass('awe-selected');
+            $('#MultiselectGrid').trigger('aweselect');
+        });
+
+        $('#btnSelectByPrice').click(function () {
+            $('#MultiselectGrid .awe-row').removeClass('awe-selected').each(function (ix, item) {
+                if ($(item).data('model').Price > 50) {
+                    $(item).addClass('awe-selected');
+                }
+            });
+
+            $('#MultiselectGrid').trigger('aweselect');
+        });
+    });
+</script>
+
+
+
+

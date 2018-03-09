@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cec_publicservice", "cec_publicservice\cec_publicservice.csproj", "{BCD04413-F3E8-4E43-AA8D-4B593F49BFD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cec_publicweb", "cec_publicweb\cec_publicweb.csproj", "{E826CE4C-1A55-4151-B64F-A73AA4D1AD3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		debug-toDEV|Any CPU = debug-toDEV|Any CPU
+		Release|Any CPU = Release|Any CPU
+		v3|Any CPU = v3|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCD04413-F3E8-4E43-AA8D-4B593F49BFD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD04413-F3E8-4E43-AA8D-4B593F49BFD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD04413-F3E8-4E43-AA8D-4B593F49BFD7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BCD04413-F3E8-4E43-AA8D-4B593F49BFD7}.debug-toDEV|Any CPU.ActiveCfg = debug-toDEV|Any CPU
+		{BCD04413-F3E8-4E43-AA8D-4B593F49BFD7}.debug-toDEV|Any CPU.Build.0 = debug-toDEV|Any CPU
+		{BCD04413-F3E8-4E43-AA8D-4B593F49BFD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD04413-F3E8-4E43-AA8D-4B593F49BFD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCD04413-F3E8-4E43-AA8D-4B593F49BFD7}.v3|Any CPU.ActiveCfg = v3|Any CPU
+		{BCD04413-F3E8-4E43-AA8D-4B593F49BFD7}.v3|Any CPU.Build.0 = v3|Any CPU
+		{E826CE4C-1A55-4151-B64F-A73AA4D1AD3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E826CE4C-1A55-4151-B64F-A73AA4D1AD3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E826CE4C-1A55-4151-B64F-A73AA4D1AD3E}.debug-toDEV|Any CPU.ActiveCfg = debug-toDEV|Any CPU
+		{E826CE4C-1A55-4151-B64F-A73AA4D1AD3E}.debug-toDEV|Any CPU.Build.0 = debug-toDEV|Any CPU
+		{E826CE4C-1A55-4151-B64F-A73AA4D1AD3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E826CE4C-1A55-4151-B64F-A73AA4D1AD3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E826CE4C-1A55-4151-B64F-A73AA4D1AD3E}.v3|Any CPU.ActiveCfg = v3|Any CPU
+		{E826CE4C-1A55-4151-B64F-A73AA4D1AD3E}.v3|Any CPU.Build.0 = v3|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

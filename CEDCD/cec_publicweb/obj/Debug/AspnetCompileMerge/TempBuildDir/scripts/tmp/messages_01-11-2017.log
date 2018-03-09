@@ -1,0 +1,20 @@
+password length must be at least 8 (password length must be at least 8)
+password length must be at least 8
+   at cec_publicweb.CECMembershipProvider.ValidatePasswordStrength(SecurityToken sec, String passcode) in c:\source.Code\cecharm\cec_publicweb\helper.cs:line 2378
+   at cec_publicweb.userinfo.registrationBtnClicked(Object sender, EventArgs e) in c:\source.Code\cecharm\cec_publicweb\userinfo.aspx.cs:line 149
+
+
+User account was not saved (Object reference not set to an instance of an object.)
+Object reference not set to an instance of an object.
+   at cec_publicservice.CECInputFormService.GetUserPasswordHistory(SecurityToken sec) in c:\source.Code\cecharm\cec_publicservice\cec_inputform.ashx.cs:line 544
+   at cec_publicweb.CECMembershipProvider.ValidatePasswordStrength(SecurityToken sec, String passcode) in c:\source.Code\cecharm\cec_publicweb\helper.cs:line 2380
+   at cec_publicweb.userinfo.registrationBtnClicked(Object sender, EventArgs e) in c:\source.Code\cecharm\cec_publicweb\userinfo.aspx.cs:line 149
+
+
+Failed to email the password to stephencohoon@westat.com. (Could not find stored procedure 'fsp_set_user_attributes'.)
+Could not find stored procedure 'fsp_set_user_attributes'.
+   at cec_publicservice.CECInputFormService.SetUserSecurityAttributes(SecurityToken sec, UserData userInfo) in c:\source.Code\cecharm\cec_publicservice\cec_inputform.ashx.cs:line 1056
+   at cec_publicweb.CECMembershipProvider.ResetPassword(String username, String answer) in c:\source.Code\cecharm\cec_publicweb\helper.cs:line 2544
+   at cec_publicweb.forgotmyself.forgotPassword_SendBtnClicked(Object sender, EventArgs e) in c:\source.Code\cecharm\cec_publicweb\forgotmyself.aspx.cs:line 69
+
+

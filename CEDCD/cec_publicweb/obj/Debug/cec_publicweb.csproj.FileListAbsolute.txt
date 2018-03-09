@@ -1,0 +1,48 @@
+C:\source.Code\cecharm\cec_publicweb\bin\cec_publicweb.dll
+C:\source.Code\cecharm\cec_publicweb\bin\cec_publicweb.pdb
+C:\source.Code\cecharm\cec_publicweb\bin\cec_publicservice.dll
+C:\source.Code\cecharm\cec_publicweb\bin\ICSharpCode.SharpZipLib.dll
+C:\source.Code\cecharm\cec_publicweb\bin\Jayrock.dll
+C:\source.Code\cecharm\cec_publicweb\bin\Jayrock.Json.dll
+C:\source.Code\cecharm\cec_publicweb\bin\NPOI.dll
+C:\source.Code\cecharm\cec_publicweb\bin\NPOI.OOXML.dll
+C:\source.Code\cecharm\cec_publicweb\bin\NPOI.OpenXml4Net.dll
+C:\source.Code\cecharm\cec_publicweb\bin\NPOI.OpenXmlFormats.dll
+C:\source.Code\cecharm\cec_publicweb\bin\cec_publicservice.pdb
+C:\source.Code\cecharm\cec_publicweb\obj\Debug\cec_publicweb.csprojResolveAssemblyReference.cache
+C:\source.Code\cecharm\cec_publicweb\obj\Debug\cec_publicweb.dll
+C:\source.Code\cecharm\cec_publicweb\obj\Debug\cec_publicweb.pdb
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\cec_publicweb.dll
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\cec_publicweb.pdb
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\cec_publicservice.dll
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\ICSharpCode.SharpZipLib.dll
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\Jayrock.dll
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\Jayrock.Json.dll
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\NPOI.dll
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\NPOI.OOXML.dll
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\NPOI.OpenXml4Net.dll
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\NPOI.OpenXmlFormats.dll
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\cec_publicservice.pdb
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\obj\Debug\cec_publicweb.csprojResolveAssemblyReference.cache
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\obj\Debug\cec_publicweb.dll
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\obj\Debug\cec_publicweb.pdb
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\cec_publicweb.dll.config
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\bin\cec_publicservice.dll.config
+C:\CEC Sites\Source Code\cecharm\cec_publicweb\obj\Debug\cec_publicweb.csproj.CoreCompileInputs.cache
+C:\Developements\cecharm\cec_publicweb\bin\cec_publicweb.dll.config
+C:\Developements\cecharm\cec_publicweb\bin\cec_publicweb.dll
+C:\Developements\cecharm\cec_publicweb\bin\cec_publicweb.pdb
+C:\Developements\cecharm\cec_publicweb\bin\cec_publicservice.dll
+C:\Developements\cecharm\cec_publicweb\bin\ICSharpCode.SharpZipLib.dll
+C:\Developements\cecharm\cec_publicweb\bin\Jayrock.dll
+C:\Developements\cecharm\cec_publicweb\bin\Jayrock.Json.dll
+C:\Developements\cecharm\cec_publicweb\bin\NPOI.dll
+C:\Developements\cecharm\cec_publicweb\bin\NPOI.OOXML.dll
+C:\Developements\cecharm\cec_publicweb\bin\NPOI.OpenXml4Net.dll
+C:\Developements\cecharm\cec_publicweb\bin\NPOI.OpenXmlFormats.dll
+C:\Developements\cecharm\cec_publicweb\bin\cec_publicservice.pdb
+C:\Developements\cecharm\cec_publicweb\bin\cec_publicservice.dll.config
+C:\Developements\cecharm\cec_publicweb\obj\Debug\cec_publicweb.csprojResolveAssemblyReference.cache
+C:\Developements\cecharm\cec_publicweb\obj\Debug\cec_publicweb.csproj.CoreCompileInputs.cache
+C:\Developements\cecharm\cec_publicweb\obj\Debug\cec_publicweb.dll
+C:\Developements\cecharm\cec_publicweb\obj\Debug\cec_publicweb.pdb

@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="micadevModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="field_data_field_sva_comment">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="bundle" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="deleted" Type="tinyint" Nullable="false" />
+    <Property Name="entity_id" Type="uint" Nullable="false" />
+    <Property Name="revision_id" Type="uint" />
+    <Property Name="language" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="delta" Type="uint" Nullable="false" />
+    <Property Name="field_sva_comment_value" Type="longtext" />
+    <Property Name="field_sva_comment_format" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="field_data_field_sva_script">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="bundle" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="deleted" Type="tinyint" Nullable="false" />
+    <Property Name="entity_id" Type="uint" Nullable="false" />
+    <Property Name="revision_id" Type="uint" />
+    <Property Name="language" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="delta" Type="uint" Nullable="false" />
+    <Property Name="field_sva_script_value" Type="longtext" />
+    <Property Name="field_sva_script_format" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="field_data_field_sva_status">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="bundle" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="deleted" Type="tinyint" Nullable="false" />
+    <Property Name="entity_id" Type="uint" Nullable="false" />
+    <Property Name="revision_id" Type="uint" />
+    <Property Name="language" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="delta" Type="uint" Nullable="false" />
+    <Property Name="field_sva_status_value" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="field_data_field_sva_variable">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="bundle" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="deleted" Type="tinyint" Nullable="false" />
+    <Property Name="entity_id" Type="uint" Nullable="false" />
+    <Property Name="revision_id" Type="uint" />
+    <Property Name="language" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="delta" Type="uint" Nullable="false" />
+    <Property Name="field_sva_variable_nid" Type="uint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.micadev.cohort_script_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="cohort_script_vw">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="bundle" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="bundle" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="deleted" Type="tinyint" Nullable="false" />
+    <Property Name="entity_id" Type="uint" Nullable="false" />
+    <Property Name="revision_id" Type="uint" />
+    <Property Name="language" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="delta" Type="uint" Nullable="false" />
+    <Property Name="field_study_study_variable_att_nid" Type="uint" />
+    <Property Name="title" Type="varchar" MaxLength="255" />
+    <Property Name="field_sva_status_value" Type="varchar" MaxLength="255" />
+    <Property Name="field_sva_comment_value" Type="longtext" />
+    <Property Name="field_sva_script_value" Type="longtext" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.micadev.dataset_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="dataset_vw">
+    <Key>
+      <PropertyRef Name="nid" />
+      <PropertyRef Name="type" />
+      <PropertyRef Name="title" />
+      <PropertyRef Name="uid" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="entity_id" />
+    </Key>
+    <Property Name="nid" Type="uint" Nullable="false" />
+    <Property Name="vid" Type="uint" />
+    <Property Name="type" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="acronym" Type="varchar" MaxLength="255" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="entity_id" Type="uint" Nullable="false" />
+    <Property Name="dataset_title" Type="varchar" MaxLength="255" />
+    <Property Name="field_dataset_type_value" Type="varchar" MaxLength="255" />
+    <Property Name="study_id" Type="uint" />
+    <Property Name="study_title" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.micadev.mica_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="mica_vw">
+    <Key>
+      <PropertyRef Name="entity_id" />
+    </Key>
+    <Property Name="entity_id" Type="uint" Nullable="false" />
+    <Property Name="field_sva_comment_value" Type="longtext" />
+    <Property Name="field_sva_script_value" Type="longtext" />
+    <Property Name="field_sva_status_value" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.micadev.short_variable_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="short_variable_vw">
+    <Key>
+      <PropertyRef Name="nid" />
+      <PropertyRef Name="title" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="21" />
+    <Property Name="nid" Type="uint" Nullable="false" />
+    <Property Name="vid" Type="uint" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="dataset_id" Type="uint" />
+    <Property Name="dataset_name" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.micadev.study_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="study_vw">
+    <Key>
+      <PropertyRef Name="sva_id" />
+    </Key>
+    <Property Name="variable_id" Type="uint" />
+    <Property Name="sva_id" Type="uint" Nullable="false" />
+    <Property Name="study_id" Type="uint" />
+    <Property Name="study_title" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.micadev.taxonomy_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="taxonomy_vw">
+    <Key>
+      <PropertyRef Name="tid" />
+      <PropertyRef Name="vid" />
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="tid" Type="bigint" Nullable="false" />
+    <Property Name="vid" Type="uint" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="description" Type="longtext" />
+    <Property Name="parent" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.micadev.taxvarmap_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="taxvarmap_vw">
+    <Key>
+      <PropertyRef Name="entity_type" />
+      <PropertyRef Name="bundle" />
+      <PropertyRef Name="deleted" />
+      <PropertyRef Name="entity_id" />
+      <PropertyRef Name="language" />
+      <PropertyRef Name="delta" />
+    </Key>
+    <Property Name="entity_type" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="bundle" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="deleted" Type="tinyint" Nullable="false" />
+    <Property Name="entity_id" Type="uint" Nullable="false" />
+    <Property Name="revision_id" Type="uint" />
+    <Property Name="language" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="delta" Type="uint" Nullable="false" />
+    <Property Name="tid" Type="uint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.micadev.variable_vw' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="variable_vw">
+    <Key>
+      <PropertyRef Name="nid" />
+      <PropertyRef Name="title" />
+      <PropertyRef Name="status" />
+    </Key>
+    <Property Name="nid" Type="uint" Nullable="false" />
+    <Property Name="vid" Type="uint" />
+    <Property Name="title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="study_id" Type="uint" />
+    <Property Name="study_name" Type="varchar" MaxLength="255" />
+    <Property Name="field_label_value" Type="varchar" MaxLength="255" />
+    <Property Name="dataset_id" Type="uint" />
+    <Property Name="dataset_name" Type="varchar" MaxLength="255" />
+    <Property Name="entity_id" Type="uint" />
+    <Property Name="entity_type" Type="varchar" MaxLength="128" />
+    <Property Name="delta" Type="uint" />
+    <Property Name="field_variable_categories_name" Type="varchar" MaxLength="255" />
+    <Property Name="field_variable_categories_label" Type="varchar" MaxLength="1024" />
+    <Property Name="field_variable_categories_missing" Type="int" />
+    <Property Name="field_unit_value" Type="varchar" MaxLength="255" />
+    <Property Name="field_value_type_value" Type="varchar" MaxLength="255" />
+    <Property Name="body_value" Type="longtext" />
+  </EntityType>
+  <Function Name="clear_cache" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="micadev" />
+  <EntityContainer Name="micadevModelStoreContainer">
+    <EntitySet Name="field_data_field_sva_comment" EntityType="Self.field_data_field_sva_comment" Schema="micadev" store:Type="Tables" />
+    <EntitySet Name="field_data_field_sva_script" EntityType="Self.field_data_field_sva_script" Schema="micadev" store:Type="Tables" />
+    <EntitySet Name="field_data_field_sva_status" EntityType="Self.field_data_field_sva_status" Schema="micadev" store:Type="Tables" />
+    <EntitySet Name="field_data_field_sva_variable" EntityType="Self.field_data_field_sva_variable" Schema="micadev" store:Type="Tables" />
+    <EntitySet Name="cohort_script_vw" EntityType="Self.cohort_script_vw" store:Type="Views" store:Schema="micadev">
+      <DefiningQuery>SELECT
+`cohort_script_vw`.`entity_type`, 
+`cohort_script_vw`.`bundle`, 
+`cohort_script_vw`.`deleted`, 
+`cohort_script_vw`.`entity_id`, 
+`cohort_script_vw`.`revision_id`, 
+`cohort_script_vw`.`language`, 
+`cohort_script_vw`.`delta`, 
+`cohort_script_vw`.`field_study_study_variable_att_nid`, 
+`cohort_script_vw`.`title`, 
+`cohort_script_vw`.`field_sva_status_value`, 
+`cohort_script_vw`.`field_sva_comment_value`, 
+`cohort_script_vw`.`field_sva_script_value`
+FROM `cohort_script_vw` AS `cohort_script_vw`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="dataset_vw" EntityType="Self.dataset_vw" store:Type="Views" store:Schema="micadev">
+      <DefiningQuery>SELECT
+`dataset_vw`.`nid`, 
+`dataset_vw`.`vid`, 
+`dataset_vw`.`type`, 
+`dataset_vw`.`title`, 
+`dataset_vw`.`acronym`, 
+`dataset_vw`.`uid`, 
+`dataset_vw`.`status`, 
+`dataset_vw`.`entity_id`, 
+`dataset_vw`.`dataset_title`, 
+`dataset_vw`.`field_dataset_type_value`, 
+`dataset_vw`.`study_id`, 
+`dataset_vw`.`study_title`
+FROM `dataset_vw` AS `dataset_vw`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="mica_vw" EntityType="Self.mica_vw" store:Type="Views" store:Schema="micadev">
+      <DefiningQuery>SELECT
+`mica_vw`.`entity_id`, 
+`mica_vw`.`field_sva_comment_value`, 
+`mica_vw`.`field_sva_script_value`, 
+`mica_vw`.`field_sva_status_value`
+FROM `mica_vw` AS `mica_vw`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="short_variable_vw" EntityType="Self.short_variable_vw" store:Type="Views" store:Schema="micadev">
+      <DefiningQuery>SELECT
+`short_variable_vw`.`id`, 
+`short_variable_vw`.`nid`, 
+`short_variable_vw`.`vid`, 
+`short_variable_vw`.`title`, 
+`short_variable_vw`.`status`, 
+`short_variable_vw`.`dataset_id`, 
+`short_variable_vw`.`dataset_name`
+FROM `short_variable_vw` AS `short_variable_vw`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="study_vw" EntityType="Self.study_vw" store:Type="Views" store:Schema="micadev">
+      <DefiningQuery>SELECT
+`study_vw`.`variable_id`, 
+`study_vw`.`sva_id`, 
+`study_vw`.`study_id`, 
+`study_vw`.`study_title`
+FROM `study_vw` AS `study_vw`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="taxonomy_vw" EntityType="Self.taxonomy_vw" store:Type="Views" store:Schema="micadev">
+      <DefiningQuery>SELECT
+`taxonomy_vw`.`tid`, 
+`taxonomy_vw`.`vid`, 
+`taxonomy_vw`.`name`, 
+`taxonomy_vw`.`description`, 
+`taxonomy_vw`.`parent`
+FROM `taxonomy_vw` AS `taxonomy_vw`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="taxvarmap_vw" EntityType="Self.taxvarmap_vw" store:Type="Views" store:Schema="micadev">
+      <DefiningQuery>SELECT
+`taxvarmap_vw`.`entity_type`, 
+`taxvarmap_vw`.`bundle`, 
+`taxvarmap_vw`.`deleted`, 
+`taxvarmap_vw`.`entity_id`, 
+`taxvarmap_vw`.`revision_id`, 
+`taxvarmap_vw`.`language`, 
+`taxvarmap_vw`.`delta`, 
+`taxvarmap_vw`.`tid`
+FROM `taxvarmap_vw` AS `taxvarmap_vw`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="variable_vw" EntityType="Self.variable_vw" store:Type="Views" store:Schema="micadev">
+      <DefiningQuery>SELECT
+`variable_vw`.`nid`, 
+`variable_vw`.`vid`, 
+`variable_vw`.`title`, 
+`variable_vw`.`status`, 
+`variable_vw`.`study_id`, 
+`variable_vw`.`study_name`, 
+`variable_vw`.`field_label_value`, 
+`variable_vw`.`dataset_id`, 
+`variable_vw`.`dataset_name`, 
+`variable_vw`.`entity_id`, 
+`variable_vw`.`entity_type`, 
+`variable_vw`.`delta`, 
+`variable_vw`.`field_variable_categories_name`, 
+`variable_vw`.`field_variable_categories_label`, 
+`variable_vw`.`field_variable_categories_missing`, 
+`variable_vw`.`field_unit_value`, 
+`variable_vw`.`field_value_type_value`, 
+`variable_vw`.`body_value`
+FROM `variable_vw` AS `variable_vw`</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

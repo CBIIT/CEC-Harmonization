@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="micadevModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="dataset_vw">
+      <EntityTypeMapping TypeName="micadevModel.dataset_vw">
+        <MappingFragment StoreEntitySet="dataset_vw">
+          <ScalarProperty Name="acronym" ColumnName="acronym" />
+          <ScalarProperty Name="study_title" ColumnName="study_title" />
+          <ScalarProperty Name="study_id" ColumnName="study_id" />
+          <ScalarProperty Name="dataset_title" ColumnName="dataset_title" />
+          <ScalarProperty Name="nid" ColumnName="nid" />
+          <ScalarProperty Name="vid" ColumnName="vid" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+          <ScalarProperty Name="field_dataset_type_value" ColumnName="field_dataset_type_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taxonomy_vw">
+      <EntityTypeMapping TypeName="micadevModel.taxonomy_vw">
+        <MappingFragment StoreEntitySet="taxonomy_vw">
+          <ScalarProperty Name="tid" ColumnName="tid" />
+          <ScalarProperty Name="vid" ColumnName="vid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taxvarmap_vw">
+      <EntityTypeMapping TypeName="micadevModel.taxvarmap_vw">
+        <MappingFragment StoreEntitySet="taxvarmap_vw">
+          <ScalarProperty Name="entity_type" ColumnName="entity_type" />
+          <ScalarProperty Name="bundle" ColumnName="bundle" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+          <ScalarProperty Name="revision_id" ColumnName="revision_id" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="delta" ColumnName="delta" />
+          <ScalarProperty Name="tid" ColumnName="tid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="variable_vw">
+      <EntityTypeMapping TypeName="micadevModel.variable_vw">
+        <MappingFragment StoreEntitySet="variable_vw">
+          <ScalarProperty Name="study_name" ColumnName="study_name" />
+          <ScalarProperty Name="study_id" ColumnName="study_id" />
+          <ScalarProperty Name="body_value" ColumnName="body_value" />
+          <ScalarProperty Name="field_value_type_value" ColumnName="field_value_type_value" />
+          <ScalarProperty Name="field_unit_value" ColumnName="field_unit_value" />
+          <ScalarProperty Name="nid" ColumnName="nid" />
+          <ScalarProperty Name="vid" ColumnName="vid" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="field_label_value" ColumnName="field_label_value" />
+          <ScalarProperty Name="dataset_id" ColumnName="dataset_id" />
+          <ScalarProperty Name="dataset_name" ColumnName="dataset_name" />
+          <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+          <ScalarProperty Name="entity_type" ColumnName="entity_type" />
+          <ScalarProperty Name="delta" ColumnName="delta" />
+          <ScalarProperty Name="field_variable_categories_name" ColumnName="field_variable_categories_name" />
+          <ScalarProperty Name="field_variable_categories_label" ColumnName="field_variable_categories_label" />
+          <ScalarProperty Name="field_variable_categories_missing" ColumnName="field_variable_categories_missing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="short_variable_vw">
+      <EntityTypeMapping TypeName="micadevModel.short_variable_vw">
+        <MappingFragment StoreEntitySet="short_variable_vw">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dataset_name" ColumnName="dataset_name" />
+          <ScalarProperty Name="dataset_id" ColumnName="dataset_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="vid" ColumnName="vid" />
+          <ScalarProperty Name="nid" ColumnName="nid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="field_data_field_sva_comment">
+      <EntityTypeMapping TypeName="micadevModel.field_data_field_sva_comment">
+        <MappingFragment StoreEntitySet="field_data_field_sva_comment">
+          <ScalarProperty Name="field_sva_comment_format" ColumnName="field_sva_comment_format" />
+          <ScalarProperty Name="field_sva_comment_value" ColumnName="field_sva_comment_value" />
+          <ScalarProperty Name="delta" ColumnName="delta" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="revision_id" ColumnName="revision_id" />
+          <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="bundle" ColumnName="bundle" />
+          <ScalarProperty Name="entity_type" ColumnName="entity_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="field_data_field_sva_script">
+      <EntityTypeMapping TypeName="micadevModel.field_data_field_sva_script">
+        <MappingFragment StoreEntitySet="field_data_field_sva_script">
+          <ScalarProperty Name="field_sva_script_format" ColumnName="field_sva_script_format" />
+          <ScalarProperty Name="field_sva_script_value" ColumnName="field_sva_script_value" />
+          <ScalarProperty Name="delta" ColumnName="delta" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="revision_id" ColumnName="revision_id" />
+          <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="bundle" ColumnName="bundle" />
+          <ScalarProperty Name="entity_type" ColumnName="entity_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="field_data_field_sva_status">
+      <EntityTypeMapping TypeName="micadevModel.field_data_field_sva_status">
+        <MappingFragment StoreEntitySet="field_data_field_sva_status">
+          <ScalarProperty Name="field_sva_status_value" ColumnName="field_sva_status_value" />
+          <ScalarProperty Name="delta" ColumnName="delta" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="revision_id" ColumnName="revision_id" />
+          <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="bundle" ColumnName="bundle" />
+          <ScalarProperty Name="entity_type" ColumnName="entity_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="study_vw">
+      <EntityTypeMapping TypeName="micadevModel.study_vw">
+        <MappingFragment StoreEntitySet="study_vw">
+          <ScalarProperty Name="study_title" ColumnName="study_title" />
+          <ScalarProperty Name="study_id" ColumnName="study_id" />
+          <ScalarProperty Name="sva_id" ColumnName="sva_id" />
+          <ScalarProperty Name="variable_id" ColumnName="variable_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="field_data_field_sva_variable">
+      <EntityTypeMapping TypeName="micadevModel.field_data_field_sva_variable">
+        <MappingFragment StoreEntitySet="field_data_field_sva_variable">
+          <ScalarProperty Name="field_sva_variable_nid" ColumnName="field_sva_variable_nid" />
+          <ScalarProperty Name="delta" ColumnName="delta" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="revision_id" ColumnName="revision_id" />
+          <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="bundle" ColumnName="bundle" />
+          <ScalarProperty Name="entity_type" ColumnName="entity_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mica_vw">
+      <EntityTypeMapping TypeName="micadevModel.mica_vw">
+        <MappingFragment StoreEntitySet="mica_vw">
+          <ScalarProperty Name="field_sva_status_value" ColumnName="field_sva_status_value" />
+          <ScalarProperty Name="field_sva_script_value" ColumnName="field_sva_script_value" />
+          <ScalarProperty Name="field_sva_comment_value" ColumnName="field_sva_comment_value" />
+          <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="clear_cache" FunctionName="micadevModel.Store.clear_cache" />
+    <EntitySetMapping Name="cohort_script_vw">
+      <EntityTypeMapping TypeName="micadevModel.cohort_script_vw">
+        <MappingFragment StoreEntitySet="cohort_script_vw">
+          <ScalarProperty Name="field_sva_script_value" ColumnName="field_sva_script_value" />
+          <ScalarProperty Name="field_sva_comment_value" ColumnName="field_sva_comment_value" />
+          <ScalarProperty Name="field_sva_status_value" ColumnName="field_sva_status_value" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="field_study_study_variable_att_nid" ColumnName="field_study_study_variable_att_nid" />
+          <ScalarProperty Name="delta" ColumnName="delta" />
+          <ScalarProperty Name="language" ColumnName="language" />
+          <ScalarProperty Name="revision_id" ColumnName="revision_id" />
+          <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="bundle" ColumnName="bundle" />
+          <ScalarProperty Name="entity_type" ColumnName="entity_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

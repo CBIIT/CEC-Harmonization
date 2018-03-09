@@ -1,0 +1,178 @@
+ul.westat-nice-menu,
+ul.westat-nice-menu ul {
+  border-top: 1px solid #ccc;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.westat-nice-menu li {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-top: 0;
+  float: right;
+}
+
+ul.westat-nice-menu a {
+  padding: 0.3em 5px 0.3em 5px;
+}
+
+ul.westat-nice-menu ul {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin-left: 0;
+  right: -1px;
+  top: 1.8em;
+}
+
+ul.westat-nice-menu ul li {
+  width: 12.5em;
+}
+
+ul.westat-nice-menu-right,
+ul.westat-nice-menu-left,
+ul.westat-nice-menu-right li,
+ul.westat-nice-menu-left li {
+  width: 12.5em;
+}
+
+ul.westat-nice-menu-right ul {
+  right: 12.5em;
+  top: -1px;
+  width: 12.5em;
+}
+
+ul.westat-nice-menu-right ul ul {
+  right: 12.5em;
+  top: -1px;
+  width: 12.5em;
+}
+
+ul.westat-nice-menu-right li.menuparent,
+ul.westat-nice-menu-right li li.menuparent {
+  background: #eee url("../images/arrow-right.png") right center no-repeat;
+}
+
+ul.westat-nice-menu-right li.menuparent:hover,
+ul.westat-nice-menu-right li li.menuparent:hover {
+  background: #ccc url("../images/arrow-right.png") right center no-repeat;
+}
+
+ul.westat-nice-menu-left li ul {
+  right: 12.60em;
+  top: -1px;
+  width: 12.5em;
+}
+
+ul.westat-nice-menu-left li ul li ul {
+  right: 12.60em;
+  top: -1px;
+  width: 12.5em;
+}
+
+ul.westat-nice-menu-left li.menuparent,
+ul.westat-nice-menu-left li li.menuparent {
+  background: #eee url("../images/arrow-left.png") left center no-repeat;
+}
+
+ul.westat-nice-menu-left li.menuparent:hover,
+ul.westat-nice-menu-left li li.menuparent:hover {
+  background: #ccc url("../images/arrow-left.png") left center no-repeat;
+}
+
+ul.westat-nice-menu-left a,
+ul.westat-nice-menu-left ul a {
+  padding-right: 14px;
+}
+
+ul.westat-nice-menu-down {
+  border: 0;
+  float: right;
+}
+
+ul.westat-nice-menu-down li {
+  border-top: 1px solid #ccc;
+}
+
+ul.westat-nice-menu-down li li {
+  border-top: 0;
+}
+
+ul.westat-nice-menu-down ul {
+  right: 0;
+}
+
+ul.westat-nice-menu-down ul li {
+  clear: both;
+}
+
+ul.westat-nice-menu-down li ul li ul {
+  right: 12.5em;
+  top: -1px;
+}
+
+ul.westat-nice-menu-down .menuparent a {
+  padding-left: 15px;
+}
+
+ul.westat-nice-menu-down li.menuparent {
+  background: #eee url("../images/arrow-down.png") right center no-repeat;
+}
+
+ul.westat-nice-menu-down li.menuparent:hover {
+  background: #ccc url("../images/arrow-down.png") right center no-repeat;
+}
+
+ul.westat-nice-menu-down li li.menuparent {
+  background: #eee url("../images/arrow-right.png") right center no-repeat;
+}
+
+ul.westat-nice-menu-down li li.menuparent:hover {
+  background: #ccc url("../images/arrow-right.png") right center no-repeat;
+}
+
+ul.westat-nice-menu li {
+  background-image: none;
+  margin: 0;
+  padding-right: 0;
+}
+
+#header-region ul.westat-nice-menu li {
+  background: #eee;
+  margin: 0;
+  padding-bottom: 0.1em;
+  padding-top: 0.1em;
+}
+
+#header-region ul.westat-nice-menu ul {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin-left: 0;
+  right: -1px;
+  top: 1.8em;
+}
+
+#header-region ul.westat-nice-menu ul {
+  top: 1.7em;
+}
+
+#header-region ul.westat-nice-menu-down li ul li ul {
+  right: 12.5em;
+  top: -1px;
+}
+
+#header-region ul.westat-nice-menu-down li.menuparent {
+  background: #eee url("../images/arrow-down.png") right center no-repeat;
+}
+
+#header-region ul.westat-nice-menu-down li.menuparent:hover {
+  background: #ccc url("../images/arrow-down.png") right center no-repeat;
+}
+
+#header-region ul.westat-nice-menu-down li li.menuparent {
+  background: #eee url("../images/arrow-right.png") right center no-repeat;
+}
+
+#header-region ul.westat-nice-menu-down li li.menuparent:hover {
+  background: #ccc url("../images/arrow-right.png") right center no-repeat;
+}

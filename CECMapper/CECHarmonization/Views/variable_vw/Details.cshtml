@@ -1,0 +1,91 @@
+﻿@model MicaData.variable_vw
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>variable_vw</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.vid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.field_label_value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.field_label_value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataset_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataset_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.entity_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.entity_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.entity_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.entity_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.delta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.delta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.field_variable_categories_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.field_variable_categories_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.field_variable_categories_label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.field_variable_categories_label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.field_variable_categories_missing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.field_variable_categories_missing)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

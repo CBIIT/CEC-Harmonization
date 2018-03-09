@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="container jumbotron">
+    <h2>CDE Mapper Tool</h2>
+    <p class="lead">This application reads harmonization data directly from the CMR and provides three options:</p>
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="panel panel-default">
+                <div class="panel-heading">Option 1:</div>
+                <div class="btn-group panel-body">
+                    @Html.ActionLink("Export the Harmonization Script to Word based on a selected Cohort", "Index", "Mapper")
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="panel panel-default">
+                <div class="panel-heading">Option 2:</div>
+                <div class="btn-group panel-body">
+                    @Html.ActionLink("Export Metadata to Excel based on a selected Cohort", "Index", "Option2")
+
+                </div>
+            </div >
+        </li >
+        <li class="list-group-item">
+            <div class="panel panel-default">
+                <div class="panel-heading">Option 3:</div>
+                <div class="panel-body">
+                    @Html.ActionLink("Export Metadata to Excel based on selected Taxonomy", "Index", "PreMap")
+
+
+                </div>
+
+            </div>
+        </li>
+    </ul>
+
+    @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+
+
+@*<div class="container">
+    <div class="col-md-4">
+        <h2>Overview</h2>
+        <p>
+            The CEC Harmonization web application consists of two sections.   The first section handles "Pre-Mapping" activities.  These are
+            tasks that are to be performed before the Target Variables are associated with Cohort Studies in the MICA tool.    The second
+            section provides a tool to build mapping specifications for a given Target variable and one to many Cohort Datasets.   The mapping page
+            utilizes a mechanism that makes it easy to build a mapping specification.  Once these specifications are complete, the system can
+            update the MICA database with the Status, Script, and Comment for the selected mapping duo.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>MICA Interaction</h2>
+        <p>
+            This system provides the capability to change the MICA database.  Use of this system assumes that you have permission to so.
+            <b>Please do not update the MICA database if you are not sure.</b>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Contacts</h2>
+        <p>Please contact Michelle Brotzman (x2065) with any Mapping or Project questions/issues.</p>
+        <p><a class="btn btn-default" href="mailto://michellebrotzman@westat.com">Email Michelle</a></p>
+        <p>Please contact Blaine Wenzel (x3669) with any technical issues.</p>
+        <p><a class="btn btn-default" href="mailto://blainewenzel@westat.com">Email Blaine</a></p>
+    </div>
+</div>*@

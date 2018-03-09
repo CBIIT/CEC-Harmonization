@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+
+-->
+<config>
+  <WorkingPath></WorkingPath>
+  <WorkingFile></WorkingFile>
+  <!-- Alert Email Configurations -->
+  <LogFile>messages.log</LogFile>
+  <!-- Email Receipients for Administrative Alerts -->
+  <HelpDeskEmail>cedcdhelpdesk@westat.com</HelpDeskEmail>
+  <EmailRecipient>stephencohoon@westat.com,cedcdhelpdesk@westat.com</EmailRecipient>
+  <smtpuser></smtpuser>
+  <smtphost>smtp.gmail.com</smtphost>
+  <smtpport>587</smtpport>
+  
+  
+  <!-- Database Configuration -->
+  <database_connections>
+  </database_connections>
+
+</config>

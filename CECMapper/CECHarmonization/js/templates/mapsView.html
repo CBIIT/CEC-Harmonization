@@ -1,0 +1,48 @@
+﻿<div class="span10 row">
+    <div>
+        {{status}}
+        {{targetdatasets.nid}} is titled: {{ targetdatasets.title}}
+        <div>
+            Choose a new activity:
+            <select data-ng-model="targetdatasets.nid"
+                    data-ng-options="act for act in targetdatasets"></select>
+        </div>
+    </div>
+    @*<select data-ng-model="variable" data-ng-disabled="!states" data-ng-options="s.StateId as s.StateName for s in states">
+        <option value="">-- Select State --</option>
+    </select>*@
+
+    1) Select Target Dataset and Variable:
+    @using (Ajax.BeginForm(
+    actionName: "GetTargetSelection",
+    controllerName: "Mapper",
+    routeValues: new { m = Model },
+    ajaxOptions: new AjaxOptions()
+    {
+    UpdateTargetId = "targetgrid",
+    InsertionMode = InsertionMode.Replace
+    }))
+    {
+    @*<div class="col-sm-4" style="background-color:lavender;">
+        Target Dataset:
+        @(Html.Awe().AjaxDropdownFor(o => o.Selection.selectedTargetDatasetId).Parameter("type", "harmonization").Url(Url.Action("GetDatasetItems", "Mapper")))
+    </div>
+    <div class="col-sm-4" style="background-color:lavenderblush;">
+        Target Variable: @(Html.Awe().AjaxDropdownFor(o => o.Selection.selectedTargetVariableId).Parent(o => o.Selection.selectedTargetDatasetId).Url(Url.Action("GetVariableItems", "Mapper")))
+    </div>
+    <div class="col-sm-2">
+
+
+        <button type="submit">Add Target to Map</button>
+    </div>
+
+    *@
+    }
+
+</div>
+<div class="row">
+    <div id="targetgrid" class="span10" data-ng-repeat="i in data">
+        {{i.Selection.selectedTarget}}
+    </div>
+</div>
+

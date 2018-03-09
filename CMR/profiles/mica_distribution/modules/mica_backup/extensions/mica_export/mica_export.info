@@ -1,0 +1,14 @@
+name = Mica XML Export
+description = Parent module to export Mica nodes to XML
+core = 7.x
+package = Mica
+php = 5.2.4
+dependencies[] = mica_origin_url
+
+
+; Information added by Drupal.org packaging script on 2014-11-13
+version = "7.x-9.2"
+core = "7.x"
+project = "mica"
+datestamp = "1415897285"
+
