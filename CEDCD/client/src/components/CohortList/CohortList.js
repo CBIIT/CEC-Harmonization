@@ -63,9 +63,6 @@ class CohortList extends Component {
 	}
 
   render() {
-  	if(Object.keys(this.state.dict).length == 0){
-  		return (<div></div>);
-  	}
   	const values = this.props.values;
   	const dict = this.state.dict;
   	let selected = [];

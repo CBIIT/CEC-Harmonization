@@ -164,7 +164,8 @@ body {
   background-color: #e8e8e6;
 }
 .tableArea{
-  overflow-x: scroll; 
+  overflow-x: scroll;
+  position:relative; 
 }
 .compareGroup-header { /* need a more general class for expand/contract triggers */
   cursor: pointer;
@@ -347,7 +348,6 @@ th.comRowHeader:hover {
   min-width: 500px;
 }
 .table-col-150 {
-  width: 10%;
   min-width: 150px;
 }
 .table-col-400 {
@@ -687,7 +687,7 @@ a.section-expand {
 }
 
 .fixed-header-column--enroll {
-    top: 50px;
+    top: 5px;
     left: 0px;
 }
 

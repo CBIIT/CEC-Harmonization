@@ -163,7 +163,7 @@ class Details extends Component {
 	}
 
 	handleGenderClick = (v) =>{
-		const filter = Object.assign(this.state.filter);
+		const filter = Object.assign({},this.state.filter);
 		let idx = filter.participant.gender.indexOf(v);
 
 		if(idx > -1){
@@ -180,7 +180,7 @@ class Details extends Component {
 	}
 
 	handleRaceClick = (v) =>{
-		const filter = Object.assign(this.state.filter);
+		const filter = Object.assign({},this.state.filter);
 		let idx = filter.participant.race.indexOf(v);
 
 		if(idx > -1){
@@ -197,7 +197,7 @@ class Details extends Component {
 	}
 
 	handleEthnicityClick = (v) =>{
-		const filter = Object.assign(this.state.filter);
+		const filter = Object.assign({},this.state.filter);
 		let idx = filter.participant.ethnicity.indexOf(v);
 
 		if(idx > -1){
@@ -214,7 +214,7 @@ class Details extends Component {
 	}
 
 	handleAgeClick = (v) =>{
-		const filter = Object.assign(this.state.filter);
+		const filter = Object.assign({},this.state.filter);
 		let idx = filter.participant.age.indexOf(v);
 
 		if(idx > -1){
@@ -231,7 +231,7 @@ class Details extends Component {
 	}
 
 	handleDataClick = (v) =>{
-		const filter = Object.assign(this.state.filter);
+		const filter = Object.assign({},this.state.filter);
 		let idx = filter.collect.data.indexOf(v);
 
 		if(idx > -1){
@@ -248,7 +248,7 @@ class Details extends Component {
 	}
 
 	handleSpecimenClick = (v) =>{
-		const filter = Object.assign(this.state.filter);
+		const filter = Object.assign({},this.state.filter);
 		let idx = filter.collect.specimen.indexOf(v);
 
 		if(idx > -1){
@@ -264,8 +264,33 @@ class Details extends Component {
 		});
 	}
 
+	handleCancerClick = (v,allIds,e) =>{
+		let filter = Object.assign({},this.state.filter);
+		if(v){
+			let idx = filter.collect.cancer.indexOf(v);
+			if(idx > -1){
+				//remove element
+				filter.collect.cancer.splice(idx,1);
+			}
+			else{
+				//add element
+				filter.collect.cancer.push(v);
+			}
+		}
+		else{
+			//click on the "all cohort"
+			filter.collect.cancer = [];
+			if(e.target.checked){
+				filter.collect.cancer = allIds;
+			}
+		}
+		this.setState({
+			filter:filter
+		});
+	}
+
 	handleCancerClick = (v) =>{
-		const filter = Object.assign(this.state.filter);
+		const filter = Object.assign({},this.state.filter);
 		let idx = filter.collect.cancer.indexOf(v);
 
 		if(idx > -1){
@@ -282,7 +307,7 @@ class Details extends Component {
 	}
 
 	handleStateClick = (v) =>{
-		const filter = Object.assign(this.state.filter);
+		const filter = Object.assign({},this.state.filter);
 		let idx = filter.study.state.indexOf(v);
 
 		if(idx > -1){
@@ -371,7 +396,7 @@ class Details extends Component {
                   <div className="col-sm-3 filterCol">
                     <div className="filter-component">
                       <h3>Type of Participant</h3>
-                      	<GenderList values={this.state.filter.participant.gender} displayMax="3" onClick={this.handleGenderClick}/>
+                      	<GenderList hasUnknown={true} values={this.state.filter.participant.gender} displayMax="3" onClick={this.handleGenderClick}/>
                       	<RaceList values={this.state.filter.participant.race} displayMax="3" onClick={this.handleRaceClick}/>
                       	<EthnicityList values={this.state.filter.participant.ethnicity} displayMax="3" onClick={this.handleEthnicityClick}/>
                       	<AgeList values={this.state.filter.participant.age} displayMax="3" onClick={this.handleAgeClick}/>
@@ -388,7 +413,7 @@ class Details extends Component {
                           	<CollectedSpecimensList values={this.state.filter.collect.specimen} displayMax="5" onClick={this.handleSpecimenClick}/>
                         </div>
                         <div className="col-sm-4">
-                          	<CollectedCancersList values={this.state.filter.collect.cancer} displayMax="5" onClick={this.handleCancerClick}/>
+                          	<CollectedCancersList hasNoCancer={false} title="Cancers Collected" innertitle="Cancers Collected"  hasSelectAll={false} values={this.state.filter.collect.cancer} displayMax="5" onClick={this.handleCancerClick}/>
                         </div>
                       </div>
                     </div>

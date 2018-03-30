@@ -13,7 +13,7 @@ class CountsTable extends Component {
   	const cohorts = this.props.cohorts;
   	const others = this.props.others;
   	const config = this.props.config;
-	const data_columns = [];
+	  const data_columns = [];
 
   	const cohort_columns = cohorts.map((item, idx) => {
   		const key = "th_cohort_"+item.cohort_id;
@@ -63,7 +63,12 @@ class CountsTable extends Component {
   		style.height = (column_2_tmp.length * 36)+"px";
   		style.width = config.blockWidth+"px";
   		column_2 = column_2.concat(column_2_tmp);
-  		return (<div key={key} className="column__cell-1" style={style}>{item}</div>);
+      let text = item;
+      if(text.length >= 38){
+        text = text.substring(0,35) + "...";
+        text = (<div title={item}>{text}</div>);
+      }
+  		return (<div key={key} className="column__cell-1" style={style}>{text}</div>);
   	});
 
   	const column_2_content = column_2.map((item, idx) => {

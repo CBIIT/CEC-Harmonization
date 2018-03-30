@@ -301,6 +301,64 @@ router.post('/enrollment', function(req, res) {
 	});
 });
 
+router.post('/cancer', function(req, res) {
+	let body = req.body;
+	let filter = body.filter || {};
+	let func = "cohort_cancer_count";
+	let params = [];
+	//form filter into Strings
+	let gender;
+	let cancer;
+	
+	gender = filter.gender;
+	//-1:[], 2:["Male"], 1:["Female"], 0: ["Male","Female"] 
+	cancer = filter.cancer;
+
+	if(filter.cohort.length > 0){
+		params.push(filter.cohort.toString());
+	}
+	else{
+		params.push("");
+	}
+	mysql.callProcedure(func,params,function(results){
+		if(results && results[0] && results[0].length > 0){
+			let dt = {};
+			dt.list = [];
+			dt.cohorts = [];
+			let list = results[0];
+			//parse cancer data
+			cancer.forEach(function(c){
+				gender.forEach(function(g){
+					console.log(g);
+					let column = "ci_" + config.cancer[c] + "_" + g.toLowerCase();
+					let tmp = {};
+					tmp.c1 = c;
+					tmp.c2 = g;
+					list.forEach(function(l){
+						let v = l[column];
+						if(l[column] == -1){
+							v = "N/P";
+						}
+						tmp["c_"+l.cohort_id] = v;
+					});
+					dt.list.push(tmp);
+				});
+			});
+			list.forEach(function(l){
+				dt.cohorts.push({
+					cohort_id:l.cohort_id,
+					cohort_name:l.cohort_name,
+					cohort_acronym:l.cohort_acronym
+				});
+			});
+			res.json({status:200, data:dt});
+		}
+		else{
+			res.json({status:200, data:{list:[]}});
+		}
+	});
+});
+
 router.get('/:id', function(req, res){
 	let id = req.params.id;
 	let info = cache.getValue("cohort:"+id);

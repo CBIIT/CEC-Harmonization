@@ -13,10 +13,10 @@ class CollectedCancersList extends Component {
 				"Colon",
 				"Corpus, body of uterus",
 				"Esophagus",
-				"Gallbladder and extrahepatic bile duct",
-				"Kidney and other unspecified urinary organs",
+				"Gall bladder and extrahepatic bile duct",
+				"Kidney and other unspecified urinary organs including renal pelvis, ureter, urethra",
 				"Leukemia",
-				"Liver/Intrahepatic bile ducts",
+				"Liver and intrahepatic bile ducts",
 				"Lymphoma (HL and NHL)",
 				"Melanoma (excluding genital organs)",
 				"Myeloma",
@@ -60,7 +60,27 @@ class CollectedCancersList extends Component {
   render() {
 
   	const values = this.props.values;
-  	const list = this.state.list.map((item, idx) => {
+  	const title = this.props.title;
+  	const innertitle = this.props.innertitle;
+  	const hasNoCancer = this.props.hasNoCancer;
+  	let f_list = Object.assign([],this.state.list);
+  	if(hasNoCancer){
+  		f_list.push("No Cancer");
+  	}
+  	let selectAll = "";
+  	if(this.props.hasSelectAll){
+  		selectAll = (
+	  		<li>
+				<label>
+					<span className="filter-component-input">
+						<input type="checkbox" onClick={(e) => this.props.onClick(null,f_list,e)}/>
+					</span>
+					All Cancer
+				</label>
+			</li>
+		);
+  	}
+  	const list = f_list.map((item, idx) => {
   		const key = "cancer_"+idx;
   		let checked = (values.indexOf(item) > -1);
   		return (
@@ -107,13 +127,14 @@ class CollectedCancersList extends Component {
 		<div>
 			<div className={cls} tabIndex="6" onBlur={this.handleBlur}>
 				<button className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded={expanded} type="button" onClick={this.handleClick}>
-				Cancers Collected&nbsp;
+				{title}&nbsp;
 				<span className="badge">{values.length}</span>
 				</button>
 				<div className="dropdown-menu filter-component-dropdown">
-					<h4>Cancers Collected</h4>
+					<h4>{innertitle}</h4>
 					<button className="btn btn-primary pull-right" type="button" onClick={this.handleClick}>X</button>
 					<ul>
+						{selectAll}
 						{list}
 					</ul>
 				</div>

@@ -164,7 +164,6 @@ class Enrollment extends Component {
   	if(this.state.result.list && this.state.result.list.length > 0){
   		const topic = ["Ethnicity","Race"];
 	  	let cohorts = this.state.result.cohorts;
-	  	let tmp = this.state.result.list[0];
 	  	let data_group = {};
 	  	data_group["Male"] = [];
 	  	data_group["Female"] = [];
@@ -220,7 +219,7 @@ class Enrollment extends Component {
 	                <div className="col-sm-3 filterCol">
 	                  <div id="gender" className="filter-component">
 	                    <h3>Gender</h3>
-	                    <GenderList values={this.state.filter.gender} displayMax="3" onClick={this.handleGenderClick}/>
+	                    <GenderList hasUnknown={true} values={this.state.filter.gender} displayMax="3" onClick={this.handleGenderClick}/>
 	                  </div>
 	                </div>
 	                <div className="col-sm-3 filterCol">

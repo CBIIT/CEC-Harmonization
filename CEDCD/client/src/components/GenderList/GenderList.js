@@ -7,8 +7,7 @@ class GenderList extends Component {
 		this.state = {
 			list:[
 				"Male",
-				"Female",
-				"Unknown"
+				"Female"
 			],
 			open:false
 		};
@@ -39,7 +38,12 @@ class GenderList extends Component {
 
   render() {
   	const values = this.props.values;
-  	const list = this.state.list.map((item, idx) => {
+  	const hasUnknown = this.props.hasUnknown;
+  	let f_list = Object.assign([],this.state.list);
+  	if(hasUnknown){
+  		f_list.push("Unknown");
+  	}
+  	const list = f_list.map((item, idx) => {
   		const key = "gender_"+idx;
   		let checked = (values.indexOf(item) > -1);
   		return (

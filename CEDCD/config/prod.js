@@ -86,6 +86,7 @@ module.exports = {
 		"Lymphoma (HL and NHL)":"lymphoma",	
 		"Myeloma":"myeloma",
 		"Leukemia":"leukemia",
+		"No Cancer":"no_cancer",
 		"All Other Cancers":"all_other_cancers"
 	},
 	eligible_disease_state:{
@@ -122,3 +123,4 @@ module.exports = {
 		"All Other Cancers":"all_other_cancers"
 	}
 };
+
