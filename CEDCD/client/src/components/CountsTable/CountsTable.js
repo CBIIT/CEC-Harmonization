@@ -56,15 +56,17 @@ class CountsTable extends Component {
   		);
   		
   	});
+
+    const c_len = column_2_tmp.length;
   	
   	const column_1_content = column_1.map((item, idx) => {
   		const key = "c_1_"+idx;
   		let style = {};
-  		style.height = (column_2_tmp.length * 36)+"px";
+  		style.height = (c_len * 36)+"px";
   		style.width = config.blockWidth+"px";
   		column_2 = column_2.concat(column_2_tmp);
       let text = item;
-      if(text.length >= 38){
+      if(c_len ==1 && text.length >= 38){
         text = text.substring(0,35) + "...";
         text = (<div title={item}>{text}</div>);
       }
@@ -77,7 +79,12 @@ class CountsTable extends Component {
   		style.height = "36px";
   		style.width = config.blockWidth+"px";
   		style.borderRight = "1px #B7B5B0 solid";
-  		return (<div key={key} className="column__cell-2" style={style}>{item}</div>);
+      let text = item;
+      if(text.length >= 38){
+        text = text.substring(0,35) + "...";
+        text = (<div title={item}>{text}</div>);
+      }
+  		return (<div key={key} className="column__cell-2" style={style}>{text}</div>);
   	});
 
     return (

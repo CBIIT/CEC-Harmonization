@@ -154,7 +154,7 @@ body {
 .interiorTable {
   max-width: 100%;
 }
-.interiorTable label{
+.cedcd-table label{
   height:40px;
   line-height: 40px;
   display: flex;
@@ -165,7 +165,6 @@ body {
 }
 .tableArea{
   overflow-x: scroll;
-  position:relative; 
 }
 .compareGroup-header { /* need a more general class for expand/contract triggers */
   cursor: pointer;

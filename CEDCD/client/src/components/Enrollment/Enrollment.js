@@ -194,11 +194,13 @@ class Enrollment extends Component {
 	  		let key = "section_"+idx;
 	  		let label = item === "Unknown"? item : item + "s";
 	  		return (
-	  			<div key={key} className="interiorTable" style={{position:"relative"}}>
-					<label>
+	  			<div key={key}>
+		  			<label>
 						Enrollment: {label}
 					</label>
-					<CountsTable saveHistory={this.saveHistory} values={data_group[item]} topic={topic} cohorts={cohorts} others={others} config={config}/>
+		  			<div className="interiorTable" style={{position:"relative"}}>
+						<CountsTable saveHistory={this.saveHistory} values={data_group[item]} topic={topic} cohorts={cohorts} others={others} config={config}/>
+					</div>
 				</div>
 			);
 	  	});

@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 
-class CohortList extends Component {
+class SpecimenList extends Component {
 
 	constructor(props){
 		super(props);
 		this.state = {
-			dict:{},
+			list:[
+				"Buffy Coat and/or Lymphocytes",
+				"Feces",
+				"Saliva and/or Buccal",
+				"Serum and/or Plasma",
+				"Tumor Tissue: Fresh/Frozen",
+				"Tumor Tissue: FFPE",
+				"Urine"
+			],
 			open:false
 		};
 
@@ -33,53 +41,17 @@ class CohortList extends Component {
 		}, 0);
 	}
 
-	componentDidMount(){
-		let reqBody = {
-			searchText:"",
-			orderBy:{
-				column:"cohort_acronym",
-				order:"asc"
-			},
-			paging:{page:0,pageSize:15,total:0}
-		};
-		fetch('/cohort/list',{
-			method: "POST",
-			body: JSON.stringify(reqBody),
-			headers: {
-		        'Content-Type': 'application/json'
-		    }
-		})
-		.then(res => res.json())
-		.then(result => {
-			let list = result.data.list;
-			let dict = {};
-			list.forEach(function(element){
-				dict[element.cohort_acronym] = {cohort_name:element.cohort_name,cohort_id:element.cohort_id};
-			});
-			this.setState({
-					dict: dict
-			});
-		});
-	}
-
   render() {
   	const values = this.props.values;
-  	const dict = this.state.dict;
-  	let selected = [];
-  	let allIds = [];
-  	const list = Object.keys(dict).map((item, idx) => {
-  		const cohort_id = dict[item].cohort_id;
-  		allIds.push(cohort_id);
-  		const key = "cohort_"+cohort_id;
-  		let checked = (values.indexOf(cohort_id) > -1);
-  		if(checked){
-  			selected.push(item);
-  		}
+  	let f_list = Object.assign([],this.state.list);
+  	const list = f_list.map((item, idx) => {
+  		const key = "specimen_"+idx;
+  		let checked = (values.indexOf(item) > -1);
   		return (
   			<li key={key}>
 				<label>
 					<span className="filter-component-input">
-						<input type="checkbox" onClick={() => this.props.onClick(cohort_id)} checked={checked}/>
+						<input type="checkbox" onClick={() => this.props.onClick(item)} checked={checked}/>
 					</span>
 					{item}
 				</label>
@@ -87,14 +59,14 @@ class CohortList extends Component {
   		);
   	});
   	const displayMax = parseInt(this.props.displayMax);
-  	const len = selected.length;
-  	const selectedList = selected.map((item, idx) => {
-  		const key = "s_cohort_"+idx;
+  	
+  	const selectedList = values.map((item, idx) => {
+  		const key = "s_specimen_"+idx;
   		if(idx >= displayMax){
-  			if(idx === len-1 && displayMax < len){
+  			if(idx === values.length-1 && displayMax < values.length){
 	  			return (
 	  				<li key={key}>
-						and {len - displayMax} more...
+						and {values.length - displayMax} more...
 					</li>
 	  			);
 	  		}
@@ -121,21 +93,13 @@ class CohortList extends Component {
 		<div>
 			<div className={cls} tabIndex="0" onBlur={this.handleBlur}>
 				<button className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded={expanded} type="button" onClick={this.handleClick}>
-				Select Cohorts&nbsp;
+				Specimen Type&nbsp;
 				<span className="badge">{this.props.values.length}</span>
 				</button>
 				<div className="dropdown-menu filter-component-dropdown">
-					<h4>Select Cohort(s)</h4>
+					<h4>Select Specimen Type(s)</h4>
 					<button className="btn btn-primary pull-right" type="button" onClick={this.handleClick}>X</button>
 					<ul>
-						<li>
-							<label>
-								<span className="filter-component-input">
-									<input type="checkbox" onClick={(e) => this.props.onClick(null,allIds,e)}/>
-								</span>
-								All Cohorts
-							</label>
-						</li>
 						{list}
 					</ul>
 				</div>
@@ -148,4 +112,4 @@ class CohortList extends Component {
   }
 }
 
-export default CohortList;
+export default SpecimenList;

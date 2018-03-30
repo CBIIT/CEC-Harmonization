@@ -94,33 +94,14 @@ module.exports = {
 		"Generally Healthy, No Previous Cancer Diagnosis":1,
 		"Other":2
 	},
-	cancer_specimen:{
-		"Oropharyngeal":"oropharyngeal",
-		"Esophagus":"esophagus",
-		"Stomach":"stomach",
-		"Small intestine":"small_intestine",
-		"Colon":"colon",
-		"Rectum and anus":"rectum",
-		"Liver and intrahepatic bile ducts":"liver",
-		"Gall bladder and extrahepatic bile duct":"gall_bladder",
-		"Pancreas":"pancreas",
-		"Trachea, bronchus, and lung":"lung",	
-		"Bone":"bone",
-		"Melanoma (excluding genital organs)":"melanoma",
-		"Breast":"breast",
-		"Cervix":"cervix",
-		"Corpus, body of uterus":"corpus",
-		"Ovary, fallopian tube, broad ligament":"ovary",	
-		"Prostate":"prostate",	
-		"Bladder":"bladder",
-		"Kidney and other unspecified urinary organs including renal pelvis, ureter, urethra":"kidney",
-		"Brain":"brain",
-		"Thyroid":"thyroid",
-		"Lymphoma (HL and NHL)":"lymphoma",	
-		"Myeloma":"myeloma",
-		"Leukemia":"leukemia",
-		"No Cancer":"no_cancer",
-		"All Other Cancers":"all_other_cancers"
+	specimen:{
+		"Buffy Coat and/or Lymphocytes":"buffy",
+		"Feces":"feces",
+		"Saliva and/or Buccal":"saliva",
+		"Serum and/or Plasma":"serum",
+		"Tumor Tissue: Fresh/Frozen":"tumor_tissue_1",
+		"Tumor Tissue: FFPE":"tumor_tissue_2",
+		"Urine":"urine"
 	}
 };
 
