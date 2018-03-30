@@ -232,6 +232,75 @@ router.post('/select', function(req, res) {
 	});
 });
 
+router.post('/enrollment', function(req, res) {
+	let body = req.body;
+	let filter = body.filter || {};
+	let func = "cohort_enrollment_count";
+	let params = [];
+	//form filter into Strings
+	let gender;
+	let race;
+	let ethnicity;
+	
+	gender = filter.gender;
+	//-1:[], 2:["Male"], 1:["Female"], 0: ["Male","Female"] 
+	race = filter.race;
+	ethnicity = filter.ethnicity;
+
+	if(filter.cohort.length > 0){
+		params.push(filter.cohort.toString());
+	}
+	else{
+		params.push("");
+	}
+	mysql.callProcedure(func,params,function(results){
+		if(results && results[0] && results[0].length > 0){
+			let dt = {};
+			dt.list = [];
+			dt.cohorts = [];
+			let list = results[0];
+			//parse enrollment data
+			race.forEach(function(r){
+				ethnicity.forEach(function(eth){
+					gender.forEach(function(g){
+						let column = "race_" + config.race[r] + "_" + config.ethnicity[eth] + "_" + config.gender[g];
+						let tmp = {};
+						let total = 0;
+						tmp.c0 = g;
+						tmp.c1 = eth;
+						tmp.c2 = r;
+						list.forEach(function(l){
+							let v = l[column];
+							let count = 0;
+							if(l[column] == -1){
+								v = "N/P";
+							}
+							else{
+								count = l[column];
+							}
+							tmp["c_"+l.cohort_id] = v;
+							total += count;
+						});
+						tmp.total = total;
+						dt.list.push(tmp);
+					});
+				});
+			});
+			list.forEach(function(l){
+				dt.cohorts.push({
+					cohort_id:l.cohort_id,
+					cohort_name:l.cohort_name,
+					cohort_acronym:l.cohort_acronym
+				});
+			});
+			res.json({status:200, data:dt});
+		}
+		else{
+			res.json({status:200, data:{list:[]}});
+		}
+	});
+});
+
 router.get('/:id', function(req, res){
 	let id = req.params.id;
 	let info = cache.getValue("cohort:"+id);

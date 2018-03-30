@@ -9,7 +9,7 @@ class PageSummary extends Component {
     const page = this.props.pageInfo.page;
     let pageStart;
     let pageEnd;
-    if(page == 0){
+    if(page === 0){
       pageStart = 1;
       pageEnd = total;
     }

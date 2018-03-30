@@ -411,7 +411,7 @@ class Details extends Component {
           </div>
           <div id="cedcd-home-cohorts" className="home col-md-12">
             <div id="cedcd-home-cohorts-inner" className="col-md-12">
-              <div ref={ node => this.contentNode = node} className="table-inner col-md-12">
+              <div className="table-inner col-md-12">
                 <div className="table-description">
                   <p>Browse the list of cohorts or use the filter options to shorten the list of cohorts according to types of participants, data, and specimens.  Then select the cohorts about which you'd like to see details and select the <b>Submit</b> button.</p>
                 </div>

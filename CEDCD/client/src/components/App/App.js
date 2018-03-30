@@ -18,32 +18,32 @@ class App extends Component {
 
   componentDidMount(){
     let path = window.location.pathname;
-    if(path == "/home" || path.startsWith("/home?")){
+    if(path === "/home" || path.startsWith("/home?")){
       setTimeout(() => {
         this.setState({ currTab: 0 });
       }, 100);
     }
-    else if(path == "/select" || path.startsWith("/select?")){
+    else if(path === "/select" || path.startsWith("/select?")){
       setTimeout(() => {
         this.setState({ currTab: 1 });
       }, 100);
     }
-    else if(path == "/enrollment" || path.startsWith("/enrollment?")){
+    else if(path === "/enrollment" || path.startsWith("/enrollment?")){
       setTimeout(() => {
         this.setState({ currTab: 2 });
       }, 100);
     }
-    else if(path == "/cancer" || path.startsWith("/cancer?")){
+    else if(path === "/cancer" || path.startsWith("/cancer?")){
       setTimeout(() => {
         this.setState({ currTab: 3 });
       }, 100);
     }
-    else if(path == "/biospecimen" || path.startsWith("/biospecimen?")){
+    else if(path === "/biospecimen" || path.startsWith("/biospecimen?")){
       setTimeout(() => {
         this.setState({ currTab: 4 });
       }, 100);
     }
-    else if(path == "/about" || path.startsWith("/about?")){
+    else if(path === "/about" || path.startsWith("/about?")){
       setTimeout(() => {
         this.setState({ currTab: 5 });
       }, 100);

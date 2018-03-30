@@ -153,10 +153,19 @@ body {
 }
 .interiorTable {
   max-width: 100%;
-  overflow: scroll;
-  max-height: 600px;
 }
-
+.interiorTable label{
+  height:40px;
+  line-height: 40px;
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(0, 149, 138, 1);
+  background-color: #e8e8e6;
+}
+.tableArea{
+  overflow-x: scroll; 
+}
 .compareGroup-header { /* need a more general class for expand/contract triggers */
   cursor: pointer;
 }
@@ -225,9 +234,9 @@ table thead th {
   background: rgba(0, 149, 138, 1);
   color: white;
   font-weight: normal;
-  border: 1px rgba(102,102,93,1.00) solid;
+/*  border: 1px rgba(102,102,93,1.00) solid;
   border-left: 1px #B28FC2 solid;
-  border-right: 1px #B28FC2 solid;
+  border-right: 1px #B28FC2 solid;*/
 }
 #enrollment_table thead th {
   text-align: center;
@@ -256,7 +265,7 @@ th.sortable, .table > thead > tr > th.sortable {
   padding:0;
 }
 tr.first-row {
-  border-top: 2px #B18DCE solid;
+  border-top: 1px #B18DCE solid;
 }
 th.compareChildRecord {
   padding-left: 30px !important;
@@ -336,6 +345,15 @@ th.comRowHeader:hover {
 .table-col-100perc {
   width: 100%;
   min-width: 500px;
+}
+.table-col-150 {
+  width: 10%;
+  min-width: 150px;
+}
+.table-col-400 {
+  width: 400px;
+  max-width: 400px;
+  min-width: 400px;
 }
 /* DATA TABLES -------------------------------------------------------- */
 .section-expand {
@@ -669,7 +687,7 @@ a.section-expand {
 }
 
 .fixed-header-column--enroll {
-    top: 40px;
+    top: 50px;
     left: 0px;
 }
 
@@ -680,17 +698,17 @@ a.section-expand {
 }
 
 .column__cell-1, .column__cell-2 {
-    border: 1px #B7B5B0 solid;
-
+    border-left: 1px #B7B5B0 solid;
+    border-bottom: 1px #B7B5B0 solid;
 }
 
 .table-header {
   height: 53px;
-  background-color: #623494;
+  background-color: rgba(0, 149, 138, 1);
   color: white;
-  /*border: 1px rgba(102,102,93,1.00) solid;*/
-    border-left: 1px #B28FC2 solid;
-    border-right: 1px #B28FC2 solid;
+  border-left: 1px #B7B5B0 solid;
+  border-top: 1px #B7B5B0 solid;
+  border-bottom: 1px #B7B5B0 solid;
     display: flex;
     align-items: center;
     padding: 0px 10px;
@@ -699,7 +717,7 @@ a.section-expand {
     left: 0;
 }
 
-.table-header::after {
+/*.table-header::after {
     content: attr(data-text);
     background-color: #623494;
     color: white;
@@ -717,7 +735,7 @@ a.section-expand {
     width: inherit;
     height: 100%;
 
-}
+}*/
 
 .fixed .table-header::after {
     position: fixed;
@@ -833,7 +851,7 @@ tr.compare-row--hover, .body-header--hover {
     font-weight: bold;
     letter-spacing: -0.4px;
     padding: 8px 10px;
-    background-color: #E8E3F0; 
+    background-color: #E9F6F5; 
     display: flex;
     align-items: center;
 }
