@@ -21,18 +21,20 @@ class TableHeader extends Component {
     let cls;
     if(this.props.value === this.props.orderBy.column){
       if(this.props.orderBy.order ==='asc'){
-          cls = "glyphicon glyphicon-arrow-up glyphicon-active";
+          cls = (<span className="glyphicon glyphicon-arrow-up"></span>);
       }
       else{
-          cls = "glyphicon glyphicon-arrow-down glyphicon-active";
+          cls = (<span className="glyphicon glyphicon-arrow-down"></span>);
       }
     }
     else{
-        cls = "glyphicon glyphicon-arrow-down";
+        cls = "";
     }
     return (
       <th className="sortable" width={this.props.width} scope="col">
-        <a href="javascript:void(0);" onClick={this.props.onClick}>{name}<span className={cls}></span></a>
+        <a href="javascript:void(0);" onClick={this.props.onClick}>{name}
+        {cls}
+        </a>
       </th>
     );
   }

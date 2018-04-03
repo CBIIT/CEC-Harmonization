@@ -136,12 +136,17 @@ class Home extends Component {
   		const list = this.state.list;
   		let content = list.map((item, index) => {
   			let id = item.cohort_id;
-  			let url = '/cohort/'+id;
+  			let url = "/cohort/"+id;
+  			let website = item.cohort_web_site;
+  			if(website.trim() === ""){
+  				website = "javascript:void(0);";
+  			}
   			return (
   				<tr key={id}>
 					<td headers="cohort_name">
-						<Link to={url} onClick={this.saveHistory}>{item.cohort_name}</Link></td>
-					<td headers="cohort_acronym"><Link to={url}>{item.cohort_acronym}</Link></td>
+						<a href={website} target="_blank">{item.cohort_name}</a>
+					</td>
+					<td headers="cohort_acronym"><Link to={url} onClick={this.saveHistory}>{item.cohort_acronym}</Link></td>
 					<td headers="date_form_completed"><Moment format="MM/DD/YYYY">{item.update_time}</Moment></td>
 				</tr>
   			);

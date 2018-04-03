@@ -14,6 +14,9 @@ import CollectedDataList from '../CollectedDataList/CollectedDataList';
 import CollectedSpecimensList from '../CollectedSpecimensList/CollectedSpecimensList';
 import CollectedCancersList from '../CollectedCancersList/CollectedCancersList';
 import DiseaseStateList from '../DiseaseStateList/DiseaseStateList';
+import FloatingSubmit from './FloatingSubmit';
+import TabBoard from './TabBoard';
+import BoxBoard from './BoxBoard';
 
 class Details extends Component {
 
@@ -43,7 +46,9 @@ class Details extends Component {
 			},
 			pageInfo:{page:1,pageSize:15,total:0},
 			lastPage:1,
-			selected:[]
+			selected:[],
+			comparasion:false,
+			currTab:0
 		};
 	}
 
@@ -73,16 +78,20 @@ class Details extends Component {
 				state:[]
 			}
 		};
-		this.filterData(i, orderBy, filter);
+		this.filterData(i, orderBy, filter,[]);
+	}
+
+	goBack2Filter = () => {
+		this.filterData(this.state.pageInfo.page);
 	}
 
 	toFilter = () =>{
-		this.filterData(1);
+		this.filterData(1,null,null,[]);
 	}
 
-	filterData(i, orderBy, filter){
+	filterData(i, orderBy, filter,selected){
 		const state = Object.assign({}, this.state);
-		const lastPage = state.pageInfo.page;
+		const lastPage = state.pageInfo.page == 0 ? state.lastPage: state.pageInfo.page;
 		let reqBody = {
 			filter:state.filter,
 			orderBy:state.orderBy,
@@ -117,7 +126,9 @@ class Details extends Component {
 						filter: reqBody.filter,
 						orderBy: reqBody.orderBy,
 						pageInfo: reqBody.paging,
-						lastPage: (i > -1? lastPage : i)
+						lastPage: (i > -1? lastPage : i),
+						selected:selected?selected:prevState.selected,
+						comparasion:false
 					}
 				));
 			});
@@ -323,10 +334,15 @@ class Details extends Component {
 		});
 	}
 
+	handleComparasion = () =>{
+		this.setState({
+			comparasion:true
+		});
+	}
+
 	renderSelectHeader(width){
 		return (
 			<th id="table-select-col" width={width} title="Toggle Select All">
-				<label className="invisibleLabel">Toggle Select All</label>
 				<SelectBox onClick={(e) => this.handleSelect(-1,e)} />
 			</th>
 		);
@@ -360,124 +376,152 @@ class Details extends Component {
 		localStorage.setItem('informationHistory_select', JSON.stringify(item));
 	}
 
+	handleTabClick(i){
+	    this.setState({currTab: i});
+	}
+
   render() {
-  		const list = this.state.list;
-  		let content = list.map((item, index) => {
-  			let id = item.cohort_id;
-  			let url = '/cohort/'+id;
+  		if(this.state.comparasion){
   			return (
-  				<tr key={id}>
-  					<td headers="table-select-col">
-  						<SelectBox onClick={() => this.handleSelect(id)} checked={this.state.selected.indexOf(id) > -1}/>
-  					</td>
-					<td headers="cohort_name">
-						<Link to={url} onClick={this.saveHistory}>{item.cohort_name}</Link></td>
-					<td headers="cohort_acronym"><Link to={url}>{item.cohort_acronym}</Link></td>
-					<td headers="date_form_completed"><Moment format="MM/DD/YYYY">{item.update_time}</Moment></td>
-				</tr>
-  			);
-  		});
-  		if(content.length === 0){
-  			content = (
-  				<tr>
-					<td colSpan="3">Nothing to display</td>
-				</tr>
-  			);
-  		}
-      return (
-      	<div>
-          <div id="cedcd-home-filter" className="filter-block home col-md-12">
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h2 className="panel-title">Filter</h2>
-              </div>
-              <div className="panel-body">
-                <div className="filter row">
-                  <div className="col-sm-3 filterCol">
-                    <div className="filter-component">
-                      <h3>Type of Participant</h3>
-                      	<GenderList hasUnknown={true} values={this.state.filter.participant.gender} displayMax="3" onClick={this.handleGenderClick}/>
-                      	<RaceList values={this.state.filter.participant.race} displayMax="3" onClick={this.handleRaceClick}/>
-                      	<EthnicityList values={this.state.filter.participant.ethnicity} displayMax="3" onClick={this.handleEthnicityClick}/>
-                      	<AgeList values={this.state.filter.participant.age} displayMax="3" onClick={this.handleAgeClick}/>
-                    </div>
-                  </div>
-                  <div className="filterCol col-sm-6">
-                    <div className="filter-component">
-                      <h3>Data and Specimens Collected</h3>
-                      <div className="row">
-                        <div className="col-sm-4">
-                          	<CollectedDataList values={this.state.filter.collect.data} displayMax="5" onClick={this.handleDataClick}/>
-                        </div>
-                        <div className="col-sm-4">
-                          	<CollectedSpecimensList values={this.state.filter.collect.specimen} displayMax="5" onClick={this.handleSpecimenClick}/>
-                        </div>
-                        <div className="col-sm-4">
-                          	<CollectedCancersList hasNoCancer={false} title="Cancers Collected" innertitle="Cancers Collected"  hasSelectAll={false} values={this.state.filter.collect.cancer} displayMax="5" onClick={this.handleCancerClick}/>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="filterCol col-sm-3 last">
-                    <div className="filter-component">
-                      	<h3>Study Design</h3>
-                      	<DiseaseStateList values={this.state.filter.study.state} displayMax="5" onClick={this.handleStateClick}/>
-                    </div>
-                  </div> 
-                </div>
-                <div className="row">
-                  <div id="submitButtonContainer" className="col-sm-3 col-sm-offset-9">
-                    <a id="filterClear" className="btn-filter" href="javascript:void(0);" onClick={this.clearFilter}><span className="glyphicon glyphicon-remove"></span> Clear All</a>
-                    <input type="submit" name="filterEngage" value="Apply Filter" className="btn btn-primary bttn_submit btn-filter" onClick={this.toFilter}/>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="cedcd-home-cohorts" className="home col-md-12">
-            <div id="cedcd-home-cohorts-inner" className="col-md-12">
-              <div className="table-inner col-md-12">
-                <div className="table-description">
-                  <p>Browse the list of cohorts or use the filter options to shorten the list of cohorts according to types of participants, data, and specimens.  Then select the cohorts about which you'd like to see details and select the <b>Submit</b> button.</p>
-                </div>
-                <div className="tableTopMatter row">
-                  <div id="tableControls" className="col-md-6">
-                    <ul className="table-controls">
-                      <PageSummary pageInfo={this.state.pageInfo} />
-                    </ul>
-                  </div>
-                  <div id="tableExport" className="col-md-2 col-md-offset-4">
-                      <a id="exportTblBtn" href="javascript:void(0);">Export Table <span className="glyphicon glyphicon-export"></span></a>
-                  </div>
-                </div>
-                <div className="cedcd-table home">
-                	<div>
-						<table cellSpacing="0" cellPadding="5" useaccessibleheaders="true" showheaders="true" id="cohortGridView" >
-							<thead>
-								<tr id="summaryHeader" className="col-header">
-									{this.renderSelectHeader("5%")}
-									{this.renderTableHeader("cohort_name","60%")}
-									{this.renderTableHeader("cohort_acronym","20%")}
-									{this.renderTableHeader("update_time","15%")}
-								</tr>
-							</thead>
-							<tbody>
-								{content}
-							</tbody>
-						</table>
-					</div>
-                </div>
-                <Paging pageInfo={this.state.pageInfo} onClick={(i) => this.gotoPage(i)}/>
-              </div>
-				<div id="floatingSubmitButtonContainer" className="row col-md-12 clearfix atHome floatingFixed" style={{width: "1170px"}}>
-					<div className="submit-button">
-					  <input type="submit" name="submitBtn" value="Submit Cohort(s)" className="btn btn-primary bttn_submit btn-filter" disabled={this.state.selected.length == 0}/>
+			<div>
+				<div id="filterLabels" className="filter-block col-md-12 lockedFilter">
+					<div className="content-nav">
+			            <a className="back" href="javascript:void(0);" onClick={this.goBack2Filter}><span className="glyphicon glyphicon-chevron-left"></span><span>Back to filter</span></a>
 					</div>
 				</div>
-            </div>
-          </div>
-        </div>
-      );
+			  	<div id="data-table" className="level2 col-md-12">
+					<div id="table-header" className="">
+						<div>
+							<div id="cohortDetailTabs">
+								<TabBoard currTab={this.state.currTab} onClick={(i) => this.handleTabClick(i)}/>
+							</div>
+						</div>
+					</div>
+					<BoxBoard cohorts={this.state.selected} currTab={this.state.currTab} />
+				</div>
+			</div>
+			);
+  		}
+  		else{
+	  		const list = this.state.list;
+	  		let content = list.map((item, index) => {
+	  			let id = item.cohort_id;
+	  			let url = '/cohort/'+id;
+	  			let website = item.cohort_web_site;
+	  			if(website.trim() === ""){
+	  				website = "javascript:void(0);";
+	  			}
+	  			return (
+	  				<tr key={id}>
+	  					<td headers="table-select-col">
+	  						<SelectBox onClick={() => this.handleSelect(id)} checked={this.state.selected.indexOf(id) > -1}/>
+	  					</td>
+						<td headers="cohort_name">
+							<a href={website} target="_blank">{item.cohort_name}</a>
+						</td>
+						<td headers="cohort_acronym"><Link to={url} onClick={this.saveHistory}>{item.cohort_acronym}</Link></td>
+						<td headers="date_form_completed"><Moment format="MM/DD/YYYY">{item.update_time}</Moment></td>
+					</tr>
+	  			);
+	  		});
+	  		if(content.length === 0){
+	  			content = (
+	  				<tr>
+						<td colSpan="3">Nothing to display</td>
+					</tr>
+	  			);
+	  		}
+			return (
+				<div>
+			  <div id="cedcd-home-filter" className="filter-block home col-md-12">
+			    <div className="panel panel-default">
+			      <div className="panel-heading">
+			        <h2 className="panel-title">Filter</h2>
+			      </div>
+			      <div className="panel-body">
+			        <div className="filter row">
+			          <div className="col-sm-3 filterCol">
+			            <div className="filter-component">
+			              <h3>Type of Participant</h3>
+			              	<GenderList hasUnknown={true} values={this.state.filter.participant.gender} displayMax="3" onClick={this.handleGenderClick}/>
+			              	<RaceList values={this.state.filter.participant.race} displayMax="3" onClick={this.handleRaceClick}/>
+			              	<EthnicityList values={this.state.filter.participant.ethnicity} displayMax="3" onClick={this.handleEthnicityClick}/>
+			              	<AgeList values={this.state.filter.participant.age} displayMax="3" onClick={this.handleAgeClick}/>
+			            </div>
+			          </div>
+			          <div className="filterCol col-sm-6">
+			            <div className="filter-component">
+			              <h3>Data and Specimens Collected</h3>
+			              <div className="row">
+			                <div className="col-sm-4">
+			                  	<CollectedDataList values={this.state.filter.collect.data} displayMax="5" onClick={this.handleDataClick}/>
+			                </div>
+			                <div className="col-sm-4">
+			                  	<CollectedSpecimensList values={this.state.filter.collect.specimen} displayMax="5" onClick={this.handleSpecimenClick}/>
+			                </div>
+			                <div className="col-sm-4">
+			                  	<CollectedCancersList hasNoCancer={false} title="Cancers Collected" innertitle="Cancers Collected"  hasSelectAll={false} values={this.state.filter.collect.cancer} displayMax="5" onClick={this.handleCancerClick}/>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+			          <div className="filterCol col-sm-3 last">
+			            <div className="filter-component">
+			              	<h3>Study Design</h3>
+			              	<DiseaseStateList values={this.state.filter.study.state} displayMax="5" onClick={this.handleStateClick}/>
+			            </div>
+			          </div> 
+			        </div>
+			        <div className="row">
+			          <div id="submitButtonContainer" className="col-sm-3 col-sm-offset-9">
+			            <a id="filterClear" className="btn-filter" href="javascript:void(0);" onClick={this.clearFilter}><span className="glyphicon glyphicon-remove"></span> Clear All</a>
+			            <input type="submit" name="filterEngage" value="Apply Filter" className="btn btn-primary bttn_submit btn-filter" onClick={this.toFilter}/>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			  <div id="cedcd-home-cohorts" className="home col-md-12">
+			    <div id="cedcd-home-cohorts-inner" className="col-md-12">
+			      <div className="table-inner col-md-12">
+			        <div className="table-description">
+			          <p>Browse the list of cohorts or use the filter options to shorten the list of cohorts according to types of participants, data, and specimens.  Then select the cohorts about which you'd like to see details and select the <b>Submit</b> button.</p>
+			        </div>
+			        <div className="tableTopMatter row">
+			          <div id="tableControls" className="col-md-6">
+			            <ul className="table-controls">
+			              <PageSummary pageInfo={this.state.pageInfo} />
+			            </ul>
+			          </div>
+			          <div id="tableExport" className="col-md-2 col-md-offset-4">
+			              <a id="exportTblBtn" href="javascript:void(0);">Export Table <span className="glyphicon glyphicon-export"></span></a>
+			          </div>
+			        </div>
+			        <div className="cedcd-table home">
+			        	<div>
+							<table cellSpacing="0" cellPadding="5" useaccessibleheaders="true" showheaders="true" id="cohortGridView" >
+								<thead>
+									<tr id="summaryHeader" className="col-header">
+										{this.renderSelectHeader("5%")}
+										{this.renderTableHeader("cohort_name","60%")}
+										{this.renderTableHeader("cohort_acronym","20%")}
+										{this.renderTableHeader("update_time","15%")}
+									</tr>
+								</thead>
+								<tbody>
+									{content}
+								</tbody>
+							</table>
+						</div>
+			        </div>
+			        <Paging pageInfo={this.state.pageInfo} onClick={(i) => this.gotoPage(i)}/>
+			      </div>
+			      <FloatingSubmit onClick={this.handleComparasion} values={this.state.selected} />
+			    </div>
+			  </div>
+			</div>
+			);
+  		}
   }
 }
 

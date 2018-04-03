@@ -6,7 +6,7 @@ class SelectBox extends Component {
   render() {
     return (
       <span className="select-checkbox">
-      	<input type="checkbox" onClick={this.props.onClick} checked={this.props.checked}/>
+      	<input type="checkbox" onChange={this.props.onClick} checked={this.props.checked}/>
       </span>
     );
   }

@@ -447,27 +447,27 @@ a:hover {
 .cedcd-table th.sortable a .glyphicon-active {
   color:rgba(103,102,93,1);
 }
-#prof-main a {
+#prof-main,.content-nav a {
   display: block;
   color: #62269E;
   text-decoration: underline;
 }
-#prof-main a:hover {
+#prof-main,.content-nav a:hover {
   text-decoration: none;
 }
-#prof-header a.back {
+#prof-header,.content-nav a.back {
   text-decoration: none;
   display: flex;
   align-content: center;
   margin-bottom: 1rem;
   line-height: 1;
-  font-weight: bold;
 }
-#prof-header a.back:hover {
+#prof-header,.content-nav a.back:hover {
   text-decoration: underline;
 }
-#prof-header a .glyphicon {
+#prof-header,.content-nav a .glyphicon {
   padding-right: 0.5rem;
+  font-size:13px;
 }
 .links-list li a {
   color: #62269E;
