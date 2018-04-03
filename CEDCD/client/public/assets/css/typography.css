@@ -447,25 +447,49 @@ a:hover {
 .cedcd-table th.sortable a .glyphicon-active {
   color:rgba(103,102,93,1);
 }
-#prof-main,.content-nav a {
+#prof-main a {
   display: block;
   color: #62269E;
   text-decoration: underline;
 }
-#prof-main,.content-nav a:hover {
+
+#prof-main a:hover {
   text-decoration: none;
 }
-#prof-header,.content-nav a.back {
+
+#prof-header a.back {
   text-decoration: none;
   display: flex;
   align-content: center;
   margin-bottom: 1rem;
   line-height: 1;
 }
-#prof-header,.content-nav a.back:hover {
+#prof-header a.back:hover {
   text-decoration: underline;
 }
-#prof-header,.content-nav a .glyphicon {
+#prof-header a .glyphicon {
+  padding-right: 0.5rem;
+  font-size:13px;
+}
+.content-nav a {
+  display: block;
+  color: #62269E;
+  text-decoration: underline;
+}
+.content-nav a:hover {
+  text-decoration: none;
+}
+.content-nav a.back {
+  text-decoration: none;
+  display: flex;
+  align-content: center;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+.content-nav a.back:hover {
+  text-decoration: underline;
+}
+.content-nav a .glyphicon {
   padding-right: 0.5rem;
   font-size:13px;
 }
@@ -501,6 +525,7 @@ a:hover {
   color: #135B5D;
 }
 #about-main #about-col-2 ul a:hover {
+  text-decoration: underline;
 }
 .cohortInfoBody a {
   font-size: 98%;
