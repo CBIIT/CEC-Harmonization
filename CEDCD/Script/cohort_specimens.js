@@ -389,102 +389,102 @@ select
 	bio_all_other_cancers_tumor_tissue_2,
 	(case when bio_blood_baseline = "No" then 0
 	    when bio_blood_baseline = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_blood_baseline_serum = "No" then 0
 	    when bio_blood_baseline_serum = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_blood_baseline_plasma = "No" then 0
 	    when bio_blood_baseline_plasma = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_blood_baseline_buffy_coat = "No" then 0
 	    when bio_blood_baseline_buffy_coat = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_blood_baseline_other_derivative = "No" then 0
 	    when bio_blood_baseline_other_derivative = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_blood_other_time = "No" then 0
 	    when bio_blood_other_time = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_blood_other_time_serum = "No" then 0
 	    when bio_blood_other_time_serum = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_blood_other_time_plasma = "No" then 0
 	    when bio_blood_other_time_plasma = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_blood_other_time_buffy_coat = "No" then 0
 	    when bio_blood_other_time_buffy_coat = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_blood_other_time_other_derivative = "No" then 0
 	    when bio_blood_other_time_other_derivative = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_buccal_saliva_baseline = "No" then 0
 	    when bio_buccal_saliva_baseline = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_buccal_saliva_other_time = "No" then 0
 	    when bio_buccal_saliva_other_time = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_tissue_baseline = "No" then 0
 	    when bio_tissue_baseline = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_tissue_other_time = "No" then 0
 	    when bio_tissue_other_time = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_tumor_block_info = "No" then 0
 	    when bio_tumor_block_info = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_genotyping_data = "No" then 0
 	    when bio_genotyping_data = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_sequencing_data_exome = "No" then 0
 	    when bio_sequencing_data_exome = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_sequencing_data_whole_genome = "No" then 0
 	    when bio_sequencing_data_whole_genome = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_epigenetic_or_metabolic_markers = "No" then 0
 	    when bio_epigenetic_or_metabolic_markers = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	),
 	(case when bio_other_omics_data = "No" then 0
 	    when bio_other_omics_data = "Yes" then 1
-	    else 0
+	    else -1
 	end
 	)
 from cohort_data

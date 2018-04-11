@@ -19,48 +19,48 @@ select
 	mort_year_mortality_followup,
 	(case when mort_death_confirmed_by_ndi_linkage = "No" then 0
 		when mort_death_confirmed_by_ndi_linkage = "Yes" then 1
-		else 0
+		else -1
 	end
 	),
 	(case when mort_death_confirmed_by_death_certificate = "No" then 0
 		when mort_death_confirmed_by_death_certificate = "Yes" then 1
-		else 0
+		else -1
 	end
 	),
 	(case when mort_death_confirmed_by_other = "No" then 0
 		when mort_death_confirmed_by_other = "Yes" then 1
-		else 0
+		else -1
 	end
 	),
 	mort_death_confirmed_by_other_specify,
 	(case when mort_have_date_of_death = "No" then 0
 		when mort_have_date_of_death = "Yes" then 1
-		else 0
+		else -1
 	end
 	),
 	(case when mort_have_cause_of_death = "No" then 0
 		when mort_have_cause_of_death = "Yes" then 1
-		else 0
+		else -1
 	end
 	),
 	(case when mort_death_code_used_icd9 = "No" then 0
 		when mort_death_code_used_icd9 = "Yes" then 1
-		else 0
+		else -1
 	end
 	),
 	(case when mort_death_code_used_icd10 = "No" then 0
 		when mort_death_code_used_icd10 = "Yes" then 1
-		else 0
+		else -1
 	end
 	),
 	(case when mort_death_not_coded = "No" then 0
 		when mort_death_not_coded = "Yes" then 1
-		else 0
+		else -1
 	end
 	),
 	(case when mort_death_code_used_other = "No" then 0
 		when mort_death_code_used_other = "Yes" then 1
-		else 0
+		else -1
 	end
 	),
 	mort_death_code_used_other_specify,

@@ -91,424 +91,424 @@ insert into cohort_major_content (
 select cohort_id,
   (case when mdc_income_baseline = "No" then 0
         when mdc_income_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_income_followup = "No" then 0
         when mdc_income_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_education_baseline = "No" then 0
         when mdc_education_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_education_followup = "No" then 0
         when mdc_education_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_marital_status_baseline = "No" then 0
         when mdc_marital_status_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_marital_status_followup = "No" then 0
         when mdc_marital_status_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_language_origin_baseline = "No" then 0
         when mdc_language_origin_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_language_origin_followup = "No" then 0
         when mdc_language_origin_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_employment_baseline = "No" then 0
         when mdc_employment_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_employment_followup = "No" then 0
         when mdc_employment_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_health_insurance_baseline = "No" then 0
         when mdc_health_insurance_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_health_insurance_followup = "No" then 0
         when mdc_health_insurance_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_anthropometry_baseline = "No" then 0
         when mdc_anthropometry_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_anthropometry_followup = "No" then 0
         when mdc_anthropometry_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_dietary_intake_baseline = "No" then 0
         when mdc_dietary_intake_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_dietary_intake_followup = "No" then 0
         when mdc_dietary_intake_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_dietary_supplement_baseline = "No" then 0
         when mdc_dietary_supplement_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_dietary_supplement_followup = "No" then 0
         when mdc_dietary_supplement_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_alternative_medicine_baseline = "No" then 0
         when mdc_alternative_medicine_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_alternative_medicine_followup = "No" then 0
         when mdc_alternative_medicine_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_prescription_drug_use_baseline = "No" then 0
         when mdc_prescription_drug_use_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_prescription_drug_use_followup = "No" then 0
         when mdc_prescription_drug_use_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_nonprescription_drug_use_baseline = "No" then 0
         when mdc_nonprescription_drug_use_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_nonprescription_drug_use_followup = "No" then 0
         when mdc_nonprescription_drug_use_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_alcohol_baseline = "No" then 0
         when mdc_alcohol_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_alcohol_followup = "No" then 0
         when mdc_alcohol_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_cigarette_baseline = "No" then 0
         when mdc_cigarette_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_cigarette_followup = "No" then 0
         when mdc_cigarette_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_tobacco_cigars_baseline = "No" then 0
         when mdc_other_tobacco_cigars_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_tobacco_cigars_followup = "No" then 0
         when mdc_other_tobacco_cigars_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_tobacco_pipes_baseline = "No" then 0
         when mdc_other_tobacco_pipes_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_tobacco_pipes_followup = "No" then 0
         when mdc_other_tobacco_pipes_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_tobacco_chewing_baseline = "No" then 0
         when mdc_other_tobacco_chewing_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_tobacco_chewing_followup = "No" then 0
         when mdc_other_tobacco_chewing_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_tobacco_ecigarette_baseline = "No" then 0
         when mdc_other_tobacco_ecigarette_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_tobacco_ecigarette_followup = "No" then 0
         when mdc_other_tobacco_ecigarette_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_tobacco_other_baseline = "No" then 0
         when mdc_other_tobacco_other_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   mdc_other_tobacco_other_specify_baseline,
   (case when mdc_other_tobacco_other_followup = "No" then 0
         when mdc_other_tobacco_other_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   mdc_other_tobacco_other_specify_followup,
   (case when mdc_physical_activity_baseline = "No" then 0
         when mdc_physical_activity_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_physical_activity_followup = "No" then 0
         when mdc_physical_activity_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_sleep_habits_baseline = "No" then 0
         when mdc_sleep_habits_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_sleep_habits_followup = "No" then 0
         when mdc_sleep_habits_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_reproductive_history_baseline = "No" then 0
         when mdc_reproductive_history_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_reproductive_history_followup = "No" then 0
         when mdc_reproductive_history_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_self_reported_health_baseline = "No" then 0
         when mdc_self_reported_health_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_self_reported_health_followup = "No" then 0
         when mdc_self_reported_health_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_quality_of_life_baseline = "No" then 0
         when mdc_quality_of_life_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_quality_of_life_followup = "No" then 0
         when mdc_quality_of_life_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_social_support_baseline = "No" then 0
         when mdc_social_support_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_social_support_baseline = "No" then 0
         when mdc_social_support_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_cognitive_function_baseline = "No" then 0
         when mdc_cognitive_function_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_cognitive_function_followup = "No" then 0
         when mdc_cognitive_function_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_depression_baseline = "No" then 0
         when mdc_depression_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_depression_followup = "No" then 0
         when mdc_depression_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_psychosocial_baseline = "No" then 0
         when mdc_other_psychosocial_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_psychosocial_followup = "No" then 0
         when mdc_other_psychosocial_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_fatigue_baseline = "No" then 0
         when mdc_fatigue_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_fatigue_followup = "No" then 0
         when mdc_fatigue_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_family_hsitory_of_cancer_baseline = "No" then 0
         when mdc_family_hsitory_of_cancer_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_family_hsitory_of_cancer_followup = "No" then 0
         when mdc_family_hsitory_of_cancer_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_family_hsitory_of_cancer_pedigrees_baseline = "No" then 0
         when mdc_family_hsitory_of_cancer_pedigrees_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_family_hsitory_of_cancer_pedigrees_followup = "No" then 0
         when mdc_family_hsitory_of_cancer_pedigrees_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_environment_baseline = "No" then 0
         when mdc_environment_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_environment_followup = "No" then 0
         when mdc_environment_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_residential_infomation_baseline = "No" then 0
         when mdc_residential_infomation_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_residential_infomation_followup = "No" then 0
         when mdc_residential_infomation_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_diabetes_baseline = "No" then 0
         when mdc_diabetes_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_diabetes_followup = "No" then 0
         when mdc_diabetes_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_stroke_baseline = "No" then 0
         when mdc_stroke_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_stroke_followup = "No" then 0
         when mdc_stroke_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_copd_baseline = "No" then 0
         when mdc_copd_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_copd_followup = "No" then 0
         when mdc_copd_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_cardiovascular_disease_baseline = "No" then 0
         when mdc_cardiovascular_disease_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_cardiovascular_disease_followup = "No" then 0
         when mdc_cardiovascular_disease_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_osteoporosis_baseline = "No" then 0
         when mdc_osteoporosis_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_osteoporosis_followup = "No" then 0
         when mdc_osteoporosis_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_mental_health_baseline = "No" then 0
         when mdc_mental_health_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_mental_health_followup = "No" then 0
         when mdc_mental_health_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_cognitive_decline_baseline = "No" then 0
         when mdc_cognitive_decline_baseline = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_cognitive_decline_followup = "No" then 0
         when mdc_cognitive_decline_followup = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_acute_treatment_toxicity = "No" then 0
         when mdc_acute_treatment_toxicity = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_late_effects_of_treatment = "No" then 0
         when mdc_late_effects_of_treatment = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_symptoms_management = "No" then 0
         when mdc_symptoms_management = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when mdc_other_cancer_condition = "No" then 0
         when mdc_other_cancer_condition = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   mdc_other_cancer_condition_specify

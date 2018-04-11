@@ -20,7 +20,7 @@ var all = {
 
 	//time to live for cohort information
 	cohort_ttl: 24 * 60 * 60,
-	
+
 	//mysql uri
 	mysql: {
 			connectionLimit: 100, 
@@ -28,7 +28,7 @@ var all = {
 			user : process.env.MYSQL_USER || 'root', 
 			password : process.env.MYSQL_PASSWORD || '123456', 
 			db : 'cedcd'
-	}
+	},
 
 	gender:{
 		"Female":"females",

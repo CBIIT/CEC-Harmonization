@@ -1,16 +1,17 @@
 /**
- * local environment
+ * dev environment
  */
 
 'use strict';
+var argv = require('minimist')(process.argv.slice(2));
 
 module.exports = {
 	// Server port
-	port: process.env.PORT || 9221,
+	port: argv.p || 9221,
 
 	// Server port
-    logDir: process.env.LOGDIR || '/var/log/cedcd',
+    logDir: argv.o || '/local/content/analysistools-sandbox/cedcd_log/',
 
 	//file upload path
-	file_path: process.env.FILE_PATH || "/data/docs/"
+	file_path: argv.f || "/local/content/cedcd_data/"
 };

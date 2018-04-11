@@ -15,37 +15,37 @@ class BoxBoard extends Component {
   	let currTab = this.props.currTab;
   	if(currTab === 0){
   		content = (
-  			<BasicInfo cohorts={this.props.cohorts} />
+  			<BasicInfo cohorts={this.props.cohorts} saveHistory={this.props.saveHistory}/>
   		);
   	}
   	else if(currTab === 1){
   		content = (
-  			<Baseline cohorts={this.props.cohorts} />
+  			<Baseline cohorts={this.props.cohorts} saveHistory={this.props.saveHistory}/>
   		);
   	}
   	else if(currTab === 2){
   		content = (
-  			<Cancer cohorts={this.props.cohorts} />
+  			<Followup cohorts={this.props.cohorts} saveHistory={this.props.saveHistory}/>
   		);
   	}
   	else if(currTab === 3){
   		content = (
-  			<Followup cohorts={this.props.cohorts} />
+  			<Cancer cohorts={this.props.cohorts} saveHistory={this.props.saveHistory}/>
   		);
   	}
   	else if(currTab === 4){
   		content = (
-  			<Linkages cohorts={this.props.cohorts} />
+  			<Mortality cohorts={this.props.cohorts} saveHistory={this.props.saveHistory}/>
   		);
   	}
   	else if(currTab === 5){
   		content = (
-  			<Mortality cohorts={this.props.cohorts} />
+  			<Linkages cohorts={this.props.cohorts} saveHistory={this.props.saveHistory}/>
   		);
   	}
   	else{
   		content = (
-  			<Specimen cohorts={this.props.cohorts} />
+  			<Specimen cohorts={this.props.cohorts} saveHistory={this.props.saveHistory}/>
   		);
   	}
     return content;

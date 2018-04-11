@@ -359,7 +359,13 @@ class Details extends Component {
 		if(previousState){
 			let state = JSON.parse(previousState);
 			localStorage.removeItem('informationHistory_select');
-			this.filterData(state.paging.page, state.orderBy, state.filter);
+			if(state.comparasion){
+				this.setState(state);
+			}
+			else{
+				this.filterData(state.paging.page, state.orderBy, state.filter);
+			}
+			
 		}
 		else{
 			this.filterData(this.state.pageInfo.page);
@@ -367,11 +373,16 @@ class Details extends Component {
 	}
 
 	saveHistory = () =>{
+		console.log("saved!");
 		const state = Object.assign({}, this.state);
 		let item = {
 			filter:state.filter,
 			orderBy:state.orderBy,
-			paging:state.pageInfo
+			paging:state.pageInfo,
+			lastPage:state.lastPage,
+			selected:state.selected,
+			comparasion:state.comparasion,
+			currTab:state.currTab
 		};
 		localStorage.setItem('informationHistory_select', JSON.stringify(item));
 	}
@@ -397,7 +408,7 @@ class Details extends Component {
 							</div>
 						</div>
 					</div>
-					<BoxBoard cohorts={this.state.selected} currTab={this.state.currTab} />
+					<BoxBoard saveHistory={this.saveHistory} cohorts={this.state.selected} currTab={this.state.currTab} />
 				</div>
 			</div>
 			);

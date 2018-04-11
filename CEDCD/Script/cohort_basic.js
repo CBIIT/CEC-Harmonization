@@ -202,13 +202,13 @@ select cohort_id,
   (case when eligible_gender = "Both" then 0
         when eligible_gender = "Female" then 1
         when eligible_gender = "Male" then 2
-        else 0
+        else -1
    end
   ),
   (case when eligible_disease = "A_Eligible_Disease_Cancer" then 0
         when eligible_disease = "A_Eligible_Disease_NCancer" then 1
         when eligible_disease = "A_Eligible_Disease_Other" then 2
-        else 1
+        else -1
    end
   ),
   eligible_disease_cancer_specify,
@@ -218,7 +218,7 @@ select cohort_id,
   enrollment_year_end,
   (case when enrollment_ongoing = "No" then 0
         when enrollment_ongoing = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   enrollment_target,
@@ -231,33 +231,33 @@ select cohort_id,
   most_recent_year,
   (case when data_collected_in_person = "No" then 0
         when data_collected_in_person = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when data_collected_phone = "No" then 0
         when data_collected_phone = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when data_collected_paper = "No" then 0
         when data_collected_paper = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when data_collected_web = "No" then 0
         when data_collected_web = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   (case when data_collected_other = "No" then 0
         when data_collected_other = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   data_collected_other_specify,
   (case when other_tools = "No" then 0
         when other_tools = "Yes" then 1
-        else 0
+        else -1
    end
   ),
   other_tools_specify,
@@ -271,3 +271,6 @@ select cohort_id,
   restrictions_other,
   restrictions_other_specify
 from cohort_data
+
+Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column To disable safe mode, 
+toggle the option in Preferences -> SQL Editor and reconnect.

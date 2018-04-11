@@ -4,6 +4,13 @@ var mysql = require('../components/mysql');
 var cache = require('../components/cache');
 var config = require('../config');
 var logger = require('../components/logger');
+var basicInfoController = require('./details/basicInfoController');
+var baselineController = require('./details/baselineController');
+var followupController = require('./details/followupController');
+var cancerController = require('./details/cancerController');
+var mortalityController = require('./details/mortalityController');
+var linkagesController = require('./details/linkagesController');
+var specimenController = require('./details/specimenController');
 
 router.post('/list', function(req, res) {
 	let body = req.body;
@@ -498,5 +505,13 @@ router.get('/:id', function(req, res){
 	}
 	
 });
+
+router.post('/details/basicInfo', basicInfoController.run);
+router.post('/details/baseline', baselineController.run);
+router.post('/details/followup', followupController.run);
+router.post('/details/cancer', cancerController.run);
+router.post('/details/mortality', mortalityController.run);
+router.post('/details/linkages', linkagesController.run);
+router.post('/details/specimen', specimenController.run);
 
 module.exports = router;
