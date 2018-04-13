@@ -129,7 +129,7 @@ class Linkage extends Component {
 					<a id="exportTblBtn" href="javascript:void(0);">Export Table <span className="glyphicon glyphicon-export"></span></a>
 				</div>
 				<div className="clearFix"></div>
-				<div className="cedcd-table">
+				<div className="cedcd-table" onScroll={(e) => this.handleScroll(e)}>
 					<DetailsTable expand={this.handleExpand} params={params}/>
 					<FloatingSideHeader expand={this.handleExpand} params={params}/>
 					<FloatingHeader saveHistory={this.props.saveHistory} params={params}/>
