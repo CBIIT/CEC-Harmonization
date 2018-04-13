@@ -109,7 +109,7 @@ class Details extends Component {
 		if(filter){
 			reqBody.filter = filter;
 		}
-		fetch('/cohort/select',{
+		fetch('/api/cohort/select',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {

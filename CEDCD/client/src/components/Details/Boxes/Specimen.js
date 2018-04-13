@@ -43,7 +43,7 @@ class Specimen extends Component {
 	componentDidMount(){
 		let reqBody = {};
 		reqBody.cohorts = this.props.cohorts;
-		fetch('/cohort/details/specimen',{
+		fetch('/api/cohort/details/specimen',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {

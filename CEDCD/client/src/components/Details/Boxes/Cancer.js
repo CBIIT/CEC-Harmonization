@@ -43,7 +43,7 @@ class Cancer extends Component {
 	componentDidMount(){
 		let reqBody = {};
 		reqBody.cohorts = this.props.cohorts;
-		fetch('/cohort/details/cancer',{
+		fetch('/api/cohort/details/cancer',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {
@@ -131,7 +131,7 @@ class Cancer extends Component {
 				<div className="clearFix"></div>
 				<div className="cedcd-table">
 					<DetailsTable expand={this.handleExpand} params={params}/>
-					<FloatingSideHeader params={params}/>
+					<FloatingSideHeader expand={this.handleExpand} params={params}/>
 					<FloatingHeader saveHistory={this.props.saveHistory} params={params}/>
 	            </div> 
 	        </div>

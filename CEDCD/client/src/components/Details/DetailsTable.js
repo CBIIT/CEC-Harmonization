@@ -25,7 +25,6 @@ class DetailsTable extends Component {
     const column_count = cohorts.length +1;
     const content = values.map((item, idx) => {
       const key = "rows_"+idx;
-      console.log(idx);
       if(item.type === "block"){
         let cls = values[idx+1].cls?"section-expand active":"section-expand";
         let style = {

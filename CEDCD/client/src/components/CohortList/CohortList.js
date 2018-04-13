@@ -42,7 +42,7 @@ class CohortList extends Component {
 			},
 			paging:{page:0,pageSize:15,total:0}
 		};
-		fetch('/cohort/list',{
+		fetch('/api/cohort/list',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {
@@ -79,7 +79,7 @@ class CohortList extends Component {
   			<li key={key}>
 				<label>
 					<span className="filter-component-input">
-						<input type="checkbox" onClick={() => this.props.onClick(cohort_id)} checked={checked}/>
+						<input type="checkbox" onChange={() => this.props.onClick(cohort_id)} checked={checked}/>
 					</span>
 					{item}
 				</label>

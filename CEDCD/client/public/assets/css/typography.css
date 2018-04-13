@@ -625,10 +625,6 @@ a:hover.expand-link {
   display: block;
   background: url(/assets/img/bg_more_info_hover.png) left center no-repeat;
 }
-.link-email {
-  background: url(/assets/img/ico_email.png) no-repeat left 5px;
-  padding-left: 20px;
-}
 .link-docx {
   background: url(/assets/img/ico_Doc.png) no-repeat left 5px;
   padding-left: 20px;

@@ -147,7 +147,7 @@ class Information extends Component {
 	}
 	
 	componentDidMount(){
-		fetch('/cohort/'+this.state.cohort_id)
+		fetch('/api/cohort/'+this.state.cohort_id)
 			.then(res => res.json())
 			.then(result => {
 				let info = result.data;

@@ -16,7 +16,7 @@ var fileUpload = require('express-fileupload');
 
 module.exports = function(app){
 
-	let env = config.env;
+	let env = config.env?config.env:"dev";
 
     app.use(compression());
     app.use(bodyParser.urlencoded({
@@ -31,9 +31,8 @@ module.exports = function(app){
     app.use(cookieParser());
     app.use(session({secret: 'cedcd token', cookie: {maxAge: config.maxAge}, resave: true, saveUninitialized: true }));
 
-    //app.use(express.static(path.join(config.root, 'client')));
-
-
+    app.use(express.static(path.join(config.root, 'client/www')));
+    
     if ('dev' === env) {
         app.use(morgan('dev'));
     }

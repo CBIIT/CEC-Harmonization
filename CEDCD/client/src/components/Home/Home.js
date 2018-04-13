@@ -67,7 +67,7 @@ class Home extends Component {
 		if(orderBy){
 			reqBody.orderBy = orderBy;
 		}
-		fetch('/cohort/list',{
+		fetch('/api/cohort/list',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {

@@ -6,14 +6,12 @@
 
 var path = require('path');
 var _ = require('lodash');
+var argv = require('minimist')(process.argv.slice(2));
 
 var all = {
 	
 	// Root path of server
     root: path.normalize(__dirname + '/..'),
-
-	// Node environment (dev, test, stage, prod), must select one.
-	env: process.env.NODE_ENV || 'dev',
 
 	//cookie max age in millseconds
 	maxAge: 3600000,
@@ -21,14 +19,7 @@ var all = {
 	//time to live for cohort information
 	cohort_ttl: 24 * 60 * 60,
 
-	//mysql uri
-	mysql: {
-			connectionLimit: 100, 
-			host: process.env.MYSQL_HOST || 'localhost',
-			user : process.env.MYSQL_USER || 'root', 
-			password : process.env.MYSQL_PASSWORD || '123456', 
-			db : 'cedcd'
-	},
+	port: argv.p || 9221,
 
 	gender:{
 		"Female":"females",
@@ -131,4 +122,4 @@ var all = {
 
 };
 
-module.exports = _.merge(all, require('./' + all.env + '.js'));
+module.exports = _.merge(all, require('./project.settings.js'));

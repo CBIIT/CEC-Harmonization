@@ -10,12 +10,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/download/:filename', function(req, res, next) {
 	let filename = req.params.filename;
-	console.log(filename);
 	let filePath = path.format({
 		dir: config.file_path,
 		base: filename
 	});
-	console.log(filePath);
     fs.readFile(filePath, function (err,data){
         res.contentType("application/pdf");
         res.send(data);

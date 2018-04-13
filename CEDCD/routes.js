@@ -3,11 +3,12 @@
  */
 
 'use strict';
-
+var express = require('express');
 var m_cohort = require('./service/cohort');
 var m_common = require('./service/common');
 var m_user = require('./service/user');
 var config = require('./config');
+var path = require('path');
 
 module.exports = function(app){
 
@@ -22,13 +23,12 @@ module.exports = function(app){
 		}
 	});
 
-	app.use('/', m_common);
-	app.use('/cohort', m_cohort);
-	app.use('/user', m_user);
-	
+	app.use('/api/', m_common);
+	app.use('/api/cohort', m_cohort);
+	app.use('/api/user', m_user);
+
 	// All other routes should redirect to error page
-    app.route('/*')
-        .get(function(req, res) {
-            res.json({status:404,data:"Error request."});
-    });
+    app.get('/*', function (req, res) {
+	  res.sendFile(path.join(config.root, 'client/www', 'index.html'));
+	});
 };

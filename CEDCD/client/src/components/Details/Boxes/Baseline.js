@@ -42,7 +42,7 @@ class Baseline extends Component {
 	componentDidMount(){
 		let reqBody = {};
 		reqBody.cohorts = this.props.cohorts;
-		fetch('/cohort/details/baseline',{
+		fetch('/api/cohort/details/baseline',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {
@@ -131,7 +131,7 @@ class Baseline extends Component {
 				<div className="clearFix"></div>
 	            <div className="cedcd-table" onScroll={(e) => this.handleScroll(e)}>
 					<DetailsTable expand={this.handleExpand} params={params}/>
-					<FloatingSideHeader params={params}/>
+					<FloatingSideHeader expand={this.handleExpand} params={params}/>
 					<FloatingHeader saveHistory={this.props.saveHistory} params={params}/>
 	            </div> 
 	        </div>

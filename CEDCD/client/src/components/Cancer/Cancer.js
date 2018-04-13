@@ -118,7 +118,7 @@ class Cancer extends Component {
 		if(filter){
 			reqBody.filter = filter;
 		}
-		fetch('/cohort/cancer',{
+		fetch('/api/cohort/cancer',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {

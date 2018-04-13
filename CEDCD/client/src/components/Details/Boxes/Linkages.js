@@ -43,7 +43,7 @@ class Linkage extends Component {
 	componentDidMount(){
 		let reqBody = {};
 		reqBody.cohorts = this.props.cohorts;
-		fetch('/cohort/details/linkages',{
+		fetch('/api/cohort/details/linkages',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {
@@ -131,7 +131,7 @@ class Linkage extends Component {
 				<div className="clearFix"></div>
 				<div className="cedcd-table">
 					<DetailsTable expand={this.handleExpand} params={params}/>
-					<FloatingSideHeader params={params}/>
+					<FloatingSideHeader expand={this.handleExpand} params={params}/>
 					<FloatingHeader saveHistory={this.props.saveHistory} params={params}/>
 	            </div> 
 	        </div>
