@@ -42,7 +42,7 @@ class CohortList extends Component {
 			},
 			paging:{page:0,pageSize:15,total:0}
 		};
-		fetch('/api/cohort/list',{
+		fetch('./api/cohort/list',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {

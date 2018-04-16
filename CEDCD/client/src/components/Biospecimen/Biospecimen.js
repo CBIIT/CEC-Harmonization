@@ -118,7 +118,7 @@ class Biospecimen extends Component {
 		if(filter){
 			reqBody.filter = filter;
 		}
-		fetch('/api/cohort/specimen',{
+		fetch('./api/cohort/specimen',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {

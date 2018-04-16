@@ -18,32 +18,32 @@ class App extends Component {
 
   componentDidMount(){
     let path = window.location.pathname;
-    if(path === "/home" || path.startsWith("/home?")){
+    if(path.indexOf("/home") >= 0){
       setTimeout(() => {
         this.setState({ currTab: 0 });
       }, 100);
     }
-    else if(path === "/select" || path.startsWith("/select?")){
+    else if(path.indexOf("/select") >= 0){
       setTimeout(() => {
         this.setState({ currTab: 1 });
       }, 100);
     }
-    else if(path === "/enrollment" || path.startsWith("/enrollment?")){
+    else if(path.indexOf("/enrollment") >= 0){
       setTimeout(() => {
         this.setState({ currTab: 2 });
       }, 100);
     }
-    else if(path === "/cancer" || path.startsWith("/cancer?")){
+    else if(path.indexOf("/cancer") >= 0){
       setTimeout(() => {
         this.setState({ currTab: 3 });
       }, 100);
     }
-    else if(path === "/biospecimen" || path.startsWith("/biospecimen?")){
+    else if(path.indexOf("/biospecimen") >= 0){
       setTimeout(() => {
         this.setState({ currTab: 4 });
       }, 100);
     }
-    else if(path === "/about" || path.startsWith("/about?")){
+    else if(path.indexOf("/about") >= 0){
       setTimeout(() => {
         this.setState({ currTab: 5 });
       }, 100);
@@ -57,7 +57,7 @@ class App extends Component {
 
   render() {
     let content = (
-      <MainContent/>
+      <MainContent />
     );
     return (
       <div>

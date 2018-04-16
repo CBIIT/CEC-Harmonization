@@ -32,7 +32,7 @@ class FloatingHeader extends Component {
     
     const cohort_columns = cohorts.map((item, idx) => {
       const key = "f_th_cohort_"+item.cohort_id;
-      let url = '/cohort/'+item.cohort_id;
+      let url = './cohort?id='+item.cohort_id;
       let style = {height: "39px",width:config.header[idx]+"px",overlay:{zIndex: 1000}};
       return (
         <div className="fixed-row__cell" style={style} key={key}>

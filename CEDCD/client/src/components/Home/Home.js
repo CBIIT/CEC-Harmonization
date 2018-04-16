@@ -67,7 +67,7 @@ class Home extends Component {
 		if(orderBy){
 			reqBody.orderBy = orderBy;
 		}
-		fetch('/api/cohort/list',{
+		fetch('./api/cohort/list',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {
@@ -136,7 +136,7 @@ class Home extends Component {
   		const list = this.state.list;
   		let content = list.map((item, index) => {
   			let id = item.cohort_id;
-  			let url = "/cohort/"+id;
+  			let url = "./cohort?id="+id;
   			let website = item.cohort_web_site;
   			if(website.trim() === ""){
   				website = "javascript:void(0);";

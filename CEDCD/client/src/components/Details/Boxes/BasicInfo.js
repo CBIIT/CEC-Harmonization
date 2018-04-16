@@ -43,7 +43,7 @@ class BasicInfo extends Component {
 	componentDidMount(){
 		let reqBody = {};
 		reqBody.cohorts = this.props.cohorts;
-		fetch('/api/cohort/details/basicInfo',{
+		fetch('./api/cohort/details/basicInfo',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {

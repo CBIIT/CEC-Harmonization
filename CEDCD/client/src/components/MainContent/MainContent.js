@@ -12,20 +12,27 @@ import Information from '../Information/Information';
 class MainContent extends Component {
 
   render() {
+    let match = window.location.pathname;
+    if(match.startsWith('/cedcd')){
+      match = "/cedcd";
+    }
+    else{
+      match = "";
+    }
     return (
       <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route path='/home' component={(props) => (
+        <Route exact path={match+'/'} component={Home}/>
+        <Route path={match+'/home'} component={(props) => (
           <Home timestamp={new Date().toString()} {...props} />
         )}/>
-        <Route path='/select' component={(props) => (
+        <Route path={match+'/select'} component={(props) => (
           <Details timestamp={new Date().toString()} {...props} />
         )}/>
-        <Route path='/enrollment' component={Enrollment}/>
-        <Route path='/cancer' component={Cancer}/>
-        <Route path='/biospecimen' component={Biospecimen}/>
-        <Route path='/about' component={About}/>
-        <Route path='/cohort/:number' component={Information}/>
+        <Route path={match+'/enrollment'} component={Enrollment}/>
+        <Route path={match+'/cancer'} component={Cancer}/>
+        <Route path={match+'/biospecimen'} component={Biospecimen}/>
+        <Route path={match+'/about'} component={About}/>
+        <Route path={match+'/cohort'} component={Information}/>
       </Switch>
     );
   }

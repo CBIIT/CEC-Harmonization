@@ -18,7 +18,7 @@ class CountsTable extends Component {
   	const cohort_columns = cohorts.map((item, idx) => {
   		const key = "th_cohort_"+item.cohort_id;
   		data_columns.push("c_"+item.cohort_id);
-      let url = '/cohort/'+item.cohort_id;
+      let url = './cohort?id='+item.cohort_id;
   		return (
   			<th className="table-col-150 sortable" key={key}>
           <Link to={url} onClick={this.props.saveHistory}>{item.cohort_acronym}</Link>

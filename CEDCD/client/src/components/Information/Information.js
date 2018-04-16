@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './Information.css';
 import Moment from 'react-moment';
+import qs from 'query-string';
 
 
 class Information extends Component {
 
 	constructor(props){
 		super(props);
-		const id = parseInt(this.props.match.params.number, 10);
+		const id = qs.parse(this.props.location.search).id;
 		this.state={
 			hasMounted: false,
 			cohort_id: id,
@@ -147,7 +148,7 @@ class Information extends Component {
 	}
 	
 	componentDidMount(){
-		fetch('/api/cohort/'+this.state.cohort_id)
+		fetch('./api/cohort/'+this.state.cohort_id)
 			.then(res => res.json())
 			.then(result => {
 				let info = result.data;

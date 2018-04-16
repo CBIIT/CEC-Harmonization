@@ -109,7 +109,7 @@ class Details extends Component {
 		if(filter){
 			reqBody.filter = filter;
 		}
-		fetch('/api/cohort/select',{
+		fetch('./api/cohort/select',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {
@@ -417,7 +417,7 @@ class Details extends Component {
 	  		const list = this.state.list;
 	  		let content = list.map((item, index) => {
 	  			let id = item.cohort_id;
-	  			let url = '/cohort/'+id;
+	  			let url = './cohort?id='+id;
 	  			let website = item.cohort_web_site;
 	  			if(website.trim() === ""){
 	  				website = "javascript:void(0);";

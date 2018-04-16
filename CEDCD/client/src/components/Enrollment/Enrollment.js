@@ -130,7 +130,7 @@ class Enrollment extends Component {
 		if(filter){
 			reqBody.filter = filter;
 		}
-		fetch('/api/cohort/enrollment',{
+		fetch('./api/cohort/enrollment',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {

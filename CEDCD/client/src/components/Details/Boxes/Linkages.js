@@ -43,7 +43,7 @@ class Linkage extends Component {
 	componentDidMount(){
 		let reqBody = {};
 		reqBody.cohorts = this.props.cohorts;
-		fetch('/api/cohort/details/linkages',{
+		fetch('./api/cohort/details/linkages',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {

@@ -42,7 +42,7 @@ class Mortality extends Component {
 	componentDidMount(){
 		let reqBody = {};
 		reqBody.cohorts = this.props.cohorts;
-		fetch('/api/cohort/details/mortality',{
+		fetch('./api/cohort/details/mortality',{
 			method: "POST",
 			body: JSON.stringify(reqBody),
 			headers: {
